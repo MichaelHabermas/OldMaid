@@ -1,7 +1,12 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const CharSelectScreen: React.FC = ({ navigation }) => {
+interface IProps {
+	navigation: any
+}
+
+
+const CharSelectScreen = ({ navigation }: IProps): JSX.Element => {
 	const btnLabel: string = 'Go to Game Play Screen';
 
 	const handleBtnPress = (): void => {
