@@ -1,6 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
+// I want this
 type IProps = {
 	navigation: any;
 };
