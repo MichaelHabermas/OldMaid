@@ -28,17 +28,19 @@ const StartScreen: React.FC = ({ navigation }) => {
   return (
     <ImageBackground source={sky} style={styles.background}>
       <View style={styles.container}>
-        {/* <Text>Start Screen</Text>
-        <Button title={btnLabel} onPress={handleStart} /> */}
-        <Image source={ground} style={styles.ground} />
+        {/* <Button title={btnLabel} onPress={handleStart} /> */}
         <Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
         <Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
-        {/* <Image source={cow} />
-        <Image source={maid} />
-        <Image source={startBtn} />
-        <Image source={tree} />
-        <Image source={tree} />
-        <Image source={logo} /> */}
+        <Image source={ground} style={styles.ground} />
+        <View style={styles.treeContainer}>
+          <Image source={tree} />
+          <Image source={tree} style={styles.middleTree} />
+          <Image source={tree} />
+        </View>
+        <Image source={cow} style={styles.cow} />
+        <Image source={maid} style={styles.maid} />
+        <Image source={logo} style={styles.logo} />
+        <Image source={startBtn} style={styles.startBtn} />
       </View>
     </ImageBackground>
   );
@@ -64,7 +66,14 @@ const styles = StyleSheet.create({
     right: '5%',
   },
   container: {
+    alignItems: 'center',
     flex: 1,
+    justifyContent: 'center',
+  },
+  cow: {
+    position: 'absolute',
+    bottom: '30%',
+    left: '5%',
   },
   ground: {
     alignSelf: 'center',
@@ -72,5 +81,31 @@ const styles = StyleSheet.create({
     height: '50%',
     position: 'absolute',
     width: '100%',
+  },
+  logo: {
+    position: 'absolute',
+    top: '30%',
+    zIndex: 10,
+  },
+  maid: {
+    bottom: '29%',
+    position: 'absolute',
+    right: '8%',
+  },
+  middleTree: {
+    marginHorizontal: '-25%',
+    zIndex: 1,
+    height: '65%',
+    width: '80%',
+  },
+  startBtn: {
+    bottom: '18%',
+    position: 'absolute',
+  },
+  treeContainer: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    paddingBottom: 200,
   },
 });
