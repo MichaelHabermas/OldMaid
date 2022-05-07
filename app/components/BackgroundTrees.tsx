@@ -21,7 +21,7 @@ const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
 const tree = require('../../assets/common/tree.png');
 
-const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
+const BackgroundTrees = (): JSX.Element => {
 	const handleStart = (): void => {
 		navigation.navigate('CharSelect');
 	};
