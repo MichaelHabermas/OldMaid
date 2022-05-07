@@ -1,9 +1,9 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-// I want this too
+import { IScreenProps } from './IScreenProps';
 
-const GamePlayScreen: React.FC = ({ navigation }) => {
+const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 	const btnLabel: string = 'Go to Game Over Screen';
 
 	const handleBtnPress = (): void => {

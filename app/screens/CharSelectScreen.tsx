@@ -1,14 +1,9 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-//this is something new
+import { IScreenProps } from './IScreenProps';
 
-interface IProps {
-	navigation: any
-}
-
-
-const CharSelectScreen = ({ navigation }: IProps): JSX.Element => {
+const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
 	const btnLabel: string = 'Go to Game Play Screen';
 
 	const handleBtnPress = (): void => {
