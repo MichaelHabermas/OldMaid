@@ -1,7 +1,10 @@
-import { StyleSheet, View, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
 
+import { useStyles } from '../styles/config/styles';
+
 import { IScreenProps } from './IScreenProps';
+import BackgroundTrees from '../components/BackgroundTrees';
 
 const cow = require('../../assets/gameOverScreen/cow_gos.png');
 const flower = require('../../assets/gameOverScreen/flower_gos.png');
@@ -16,6 +19,8 @@ const sky = require('../../assets/gameOverScreen/sky_background_gos.png');
 const win = require('../../assets/gameOverScreen/win_message.png');
 
 const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
+	const styles1 = useStyles();
+
 	const btnLabel: string = 'Go to Start Screen';
 
 	const handleBtnPress = (): void => {
@@ -24,21 +29,24 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
 	return (
 		<ImageBackground source={sky} style={styles.background}>
-			<View style={styles.container}>
+			<View style={styles1.container}>
 				{/* <Text>Game Over Screen</Text> */}
 				<Image source={ground} style={styles.ground} />
 				{/* <Image source={cow} />  */}
 				{/* <Image source={flower} /> */}
 				{/* <Image source={maid} /> */}
+				<BackgroundTrees />
 				<Image source={gameOver} style={styles.gameOver} />
 				{/* <Image source={bigStar} /> */}
-				<Image source={tree} style={styles.treemiddle} />
+				{/* <Image source={tree} style={styles.treemiddle} /> */}
 				{/* <Image source={tree} style={styles.treeright} /> */}
 				{/* <Image source={tree} style={styles.treeleft} /> */}
 				{/* <Image source={littleStar} /> */}
-				<Image source={playAgainBtn} style={styles.playAgainBtn} />
+				{/* <Image source={playAgainBtn} style={styles.playAgainBtn} /> */}
 				{/* <Image source={win} /> */}
-
+				<TouchableOpacity style={styles.playAgainBtn} onPress={handleBtnPress}>
+					<Image source={playAgainBtn} />
+				</TouchableOpacity>
 				{/* <Button title={btnLabel} onPress={handleBtnPress} /> */}
 			</View>
 		</ImageBackground>
@@ -61,11 +69,4 @@ const styles = StyleSheet.create({
 	treeright: {},
 	treeleft: {},
 	playAgainBtn: {},
-
-	container: {
-		flex: 1,
-		// backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
 });
