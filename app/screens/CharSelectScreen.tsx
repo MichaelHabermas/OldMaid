@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-//this is something new
+//new change
 
 interface IProps {
 	navigation: any
