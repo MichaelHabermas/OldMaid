@@ -1,9 +1,10 @@
-import { StyleSheet, View, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 import { useStyles } from '../styles/config/styles';
 
 import { IScreenProps } from './IScreenProps';
+import BackgroundTrees from '../components/BackgroundTrees';
 
 const cow = require('../../assets/gameOverScreen/cow_gos.png');
 const flower = require('../../assets/gameOverScreen/flower_gos.png');
@@ -34,15 +35,18 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				{/* <Image source={cow} />  */}
 				{/* <Image source={flower} /> */}
 				{/* <Image source={maid} /> */}
+				<BackgroundTrees />
 				<Image source={gameOver} style={styles.gameOver} />
 				{/* <Image source={bigStar} /> */}
-				<Image source={tree} style={styles.treemiddle} />
+				{/* <Image source={tree} style={styles.treemiddle} /> */}
 				{/* <Image source={tree} style={styles.treeright} /> */}
 				{/* <Image source={tree} style={styles.treeleft} /> */}
 				{/* <Image source={littleStar} /> */}
-				<Image source={playAgainBtn} style={styles.playAgainBtn} />
+				{/* <Image source={playAgainBtn} style={styles.playAgainBtn} /> */}
 				{/* <Image source={win} /> */}
-
+				<TouchableOpacity style={styles.playAgainBtn} onPress={handleBtnPress}>
+					<Image source={playAgainBtn} />
+				</TouchableOpacity>
 				{/* <Button title={btnLabel} onPress={handleBtnPress} /> */}
 			</View>
 		</ImageBackground>

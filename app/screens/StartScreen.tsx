@@ -6,10 +6,10 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import { IScreenProps } from './IScreenProps';
 
 import { useStyles } from '../styles/config/styles';
-
-import { IScreenProps } from './IScreenProps';
+import BackgroundTrees from '../components/BackgroundTrees';
 
 const cloud1 = require('../../assets/common/cloud_1.png');
 const cloud2 = require('../../assets/common/cloud_2.png');
@@ -35,11 +35,12 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				<Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
 				<Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
 				<Image source={ground} style={styles.ground} />
-				<View style={styles.treeContainer}>
+				{/* <View style={styles.treeContainer}>
 					<Image source={tree} />
 					<Image source={tree} style={styles.middleTree} />
 					<Image source={tree} />
-				</View>
+				</View> */}
+				<BackgroundTrees/>
 				<Image source={cow} style={styles.cow} />
 				<Image source={maid} style={styles.maid} />
 				<Image source={logo} style={styles.logo} />
