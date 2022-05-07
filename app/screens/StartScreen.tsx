@@ -5,6 +5,7 @@ import {
   View,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
 
@@ -19,9 +20,7 @@ const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
 const tree = require('../../assets/common/tree.png');
 
-const StartScreen: React.FC = ({ navigation }) => {
-  const btnLabel: string = 'Go to Character Select Screen';
-
+const StartScreen = ({ navigation }): JSX.Element => {
   const handleStart = (): void => {
     navigation.navigate('CharSelect');
   };
@@ -29,7 +28,6 @@ const StartScreen: React.FC = ({ navigation }) => {
   return (
     <ImageBackground source={sky} style={styles.background}>
       <View style={styles.container}>
-        {/* <Button title={btnLabel} onPress={handleStart} /> */}
         <Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
         <Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
         <Image source={ground} style={styles.ground} />
@@ -41,7 +39,10 @@ const StartScreen: React.FC = ({ navigation }) => {
         <Image source={cow} style={styles.cow} />
         <Image source={maid} style={styles.maid} />
         <Image source={logo} style={styles.logo} />
-        <Image source={startBtn} style={styles.startBtn} />
+        <TouchableOpacity style={styles.startBtn} onPress={handleStart}>
+          <Image source={startBtn} />
+        </TouchableOpacity>
+        <Image source={flower} style={styles.flower} />
       </View>
     </ImageBackground>
   );
@@ -75,6 +76,9 @@ const styles = StyleSheet.create({
     bottom: '30%',
     position: 'absolute',
     left: '5%',
+  },
+  flower: {
+    position: 'absolute',
   },
   ground: {
     alignSelf: 'center',
