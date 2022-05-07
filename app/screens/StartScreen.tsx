@@ -1,14 +1,15 @@
-import { IScreenProps } from './IScreenProps';
 import {
-	Button,
 	StyleSheet,
-	Text,
 	View,
 	Image,
 	ImageBackground,
 	TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+
+import { useStyles } from '../styles/config/styles';
+
+import { IScreenProps } from './IScreenProps';
 
 const cloud1 = require('../../assets/common/cloud_1.png');
 const cloud2 = require('../../assets/common/cloud_2.png');
@@ -21,14 +22,16 @@ const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
 const tree = require('../../assets/common/tree.png');
 
-const StartScreen = ({ navigation }): JSX.Element => {
+const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
+	const styles1 = useStyles();
+
 	const handleStart = (): void => {
 		navigation.navigate('CharSelect');
 	};
 
 	return (
 		<ImageBackground source={sky} style={styles.background}>
-			<View style={styles.container}>
+			<View style={styles1.container}>
 				<Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
 				<Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
 				<Image source={ground} style={styles.ground} />
@@ -67,11 +70,6 @@ const styles = StyleSheet.create({
 	},
 	cloud2: {
 		right: '5%',
-	},
-	container: {
-		alignItems: 'center',
-		flex: 1,
-		justifyContent: 'center',
 	},
 	cow: {
 		bottom: '30%',

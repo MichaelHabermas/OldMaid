@@ -1,6 +1,8 @@
 import { StyleSheet, View, Image, ImageBackground } from 'react-native';
 import React from 'react';
 
+import { useStyles } from '../styles/config/styles';
+
 import { IScreenProps } from './IScreenProps';
 
 const cow = require('../../assets/gameOverScreen/cow_gos.png');
@@ -16,6 +18,8 @@ const sky = require('../../assets/gameOverScreen/sky_background_gos.png');
 const win = require('../../assets/gameOverScreen/win_message.png');
 
 const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
+	const styles1 = useStyles();
+
 	const btnLabel: string = 'Go to Start Screen';
 
 	const handleBtnPress = (): void => {
@@ -24,7 +28,7 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
 	return (
 		<ImageBackground source={sky} style={styles.background}>
-			<View style={styles.container}>
+			<View style={styles1.container}>
 				{/* <Text>Game Over Screen</Text> */}
 				<Image source={ground} style={styles.ground} />
 				{/* <Image source={cow} />  */}
@@ -61,11 +65,4 @@ const styles = StyleSheet.create({
 	treeright: {},
 	treeleft: {},
 	playAgainBtn: {},
-
-	container: {
-		flex: 1,
-		// backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
 });

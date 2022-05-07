@@ -1,9 +1,13 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
+import { useStyles } from '../styles/config/styles';
+
 import { IScreenProps } from './IScreenProps';
 
 const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
+	const styles = useStyles();
+
 	const btnLabel: string = 'Go to Game Over Screen';
 
 	const handleBtnPress = (): void => {
@@ -19,12 +23,3 @@ const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 };
 
 export default GamePlayScreen;
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
