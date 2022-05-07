@@ -5,22 +5,22 @@ import {
   View,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
 
-const sky = require('../../assets/common/day_sky_background.png');
 const cloud1 = require('../../assets/common/cloud_1.png');
 const cloud2 = require('../../assets/common/cloud_2.png');
+const flower = require('../../assets/common/flower.png');
 const ground = require('../../assets/common/ground_ss.png');
-const tree = require('../../assets/common/tree.png');
-const logo = require('../../assets/common/old_maid_logo.png');
 const cow = require('../../assets/startScreen/cow_ss.png');
+const logo = require('../../assets/common/old_maid_logo.png');
 const maid = require('../../assets/startScreen/milk_maid_ss.png');
+const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
+const tree = require('../../assets/common/tree.png');
 
-const StartScreen: React.FC = ({ navigation }) => {
-  const btnLabel: string = 'Go to Character Select Screen';
-
+const StartScreen = ({ navigation }): JSX.Element => {
   const handleStart = (): void => {
     navigation.navigate('CharSelect');
   };
@@ -28,7 +28,6 @@ const StartScreen: React.FC = ({ navigation }) => {
   return (
     <ImageBackground source={sky} style={styles.background}>
       <View style={styles.container}>
-        {/* <Button title={btnLabel} onPress={handleStart} /> */}
         <Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
         <Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
         <Image source={ground} style={styles.ground} />
@@ -40,7 +39,10 @@ const StartScreen: React.FC = ({ navigation }) => {
         <Image source={cow} style={styles.cow} />
         <Image source={maid} style={styles.maid} />
         <Image source={logo} style={styles.logo} />
-        <Image source={startBtn} style={styles.startBtn} />
+        <TouchableOpacity style={styles.startBtn} onPress={handleStart}>
+          <Image source={startBtn} />
+        </TouchableOpacity>
+        <Image source={flower} style={styles.flower} />
       </View>
     </ImageBackground>
   );
@@ -53,11 +55,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cloud: {
+    height: 100,
     position: 'absolute',
     resizeMode: 'contain',
     top: '5%',
     width: 200,
-    height: 100,
   },
   cloud1: {
     left: '5%',
@@ -71,9 +73,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cow: {
-    position: 'absolute',
     bottom: '30%',
+    position: 'absolute',
     left: '5%',
+  },
+  flower: {
+    position: 'absolute',
   },
   ground: {
     alignSelf: 'center',
@@ -93,10 +98,10 @@ const styles = StyleSheet.create({
     right: '8%',
   },
   middleTree: {
-    marginHorizontal: '-25%',
-    zIndex: 1,
     height: '65%',
+    marginHorizontal: '-25%',
     width: '80%',
+    zIndex: 1,
   },
   startBtn: {
     bottom: '18%',
