@@ -21,9 +21,7 @@ const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
 const tree = require('../../assets/common/tree.png');
 
-const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
-	const btnLabel: string = 'Go to Character Select Screen';
-
+const StartScreen = ({ navigation }): JSX.Element => {
 	const handleStart = (): void => {
 		navigation.navigate('CharSelect');
 	};
@@ -31,7 +29,6 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 	return (
 		<ImageBackground source={sky} style={styles.background}>
 			<View style={styles.container}>
-				{/* <Button title={btnLabel} onPress={handleStart} /> */}
 				<Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
 				<Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
 				<Image source={ground} style={styles.ground} />
@@ -43,7 +40,10 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				<Image source={cow} style={styles.cow} />
 				<Image source={maid} style={styles.maid} />
 				<Image source={logo} style={styles.logo} />
-				<Image source={startBtn} style={styles.startBtn} />
+				<TouchableOpacity style={styles.startBtn} onPress={handleStart}>
+					<Image source={startBtn} />
+				</TouchableOpacity>
+				<Image source={flower} style={styles.flower} />
 			</View>
 		</ImageBackground>
 	);
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	cloud: {
+		height: 100,
 		position: 'absolute',
 		resizeMode: 'contain',
 		top: '5%',
 		width: 200,
-		height: 100,
 	},
 	cloud1: {
 		left: '5%',
@@ -74,9 +74,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	cow: {
-		position: 'absolute',
 		bottom: '30%',
+		position: 'absolute',
 		left: '5%',
+	},
+	flower: {
+		position: 'absolute',
 	},
 	ground: {
 		alignSelf: 'center',
@@ -96,10 +99,10 @@ const styles = StyleSheet.create({
 		right: '8%',
 	},
 	middleTree: {
-		marginHorizontal: '-25%',
-		zIndex: 1,
 		height: '65%',
+		marginHorizontal: '-25%',
 		width: '80%',
+		zIndex: 1,
 	},
 	startBtn: {
 		bottom: '18%',
