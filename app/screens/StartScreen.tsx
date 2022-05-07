@@ -1,17 +1,25 @@
-import { StyleSheet, View, Image, ImageBackground } from 'react-native';
+import { IScreenProps } from './IScreenProps';
+import {
+	Button,
+	StyleSheet,
+	Text,
+	View,
+	Image,
+	ImageBackground,
+	TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
-import { IScreenProps } from './IScreenProps';
-
-const sky = require('../../assets/common/day_sky_background.png');
 const cloud1 = require('../../assets/common/cloud_1.png');
 const cloud2 = require('../../assets/common/cloud_2.png');
+const flower = require('../../assets/common/flower.png');
 const ground = require('../../assets/common/ground_ss.png');
-const tree = require('../../assets/common/tree.png');
-const logo = require('../../assets/common/old_maid_logo.png');
 const cow = require('../../assets/startScreen/cow_ss.png');
+const logo = require('../../assets/common/old_maid_logo.png');
 const maid = require('../../assets/startScreen/milk_maid_ss.png');
+const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
+const tree = require('../../assets/common/tree.png');
 
 const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 	const btnLabel: string = 'Go to Character Select Screen';
