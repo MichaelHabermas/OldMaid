@@ -9,18 +9,19 @@ import React from 'react';
 import { IScreenProps } from './IScreenProps';
 
 import { useStyles } from '../styles/config/styles';
+import { assets } from '../../assets';
+
 import BackgroundTrees from '../components/BackgroundTrees';
 
 const cloud1 = require('../../assets/common/cloud_1.png');
 const cloud2 = require('../../assets/common/cloud_2.png');
 const flower = require('../../assets/common/flower.png');
-const ground = require('../../assets/common/ground_ss.png');
+const ground = require('../../assets/common/grass_half.png');
 const cow = require('../../assets/startScreen/cow_ss.png');
 const logo = require('../../assets/common/old_maid_logo.png');
 const maid = require('../../assets/startScreen/milk_maid_ss.png');
 const sky = require('../../assets/common/day_sky_background.png');
 const startBtn = require('../../assets/startScreen/start_button.png');
-const tree = require('../../assets/common/tree.png');
 
 const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 	const styles1 = useStyles();
@@ -35,12 +36,7 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				<Image source={cloud1} style={[styles.cloud, styles.cloud1]} />
 				<Image source={cloud2} style={[styles.cloud, styles.cloud2]} />
 				<Image source={ground} style={styles.ground} />
-				{/* <View style={styles.treeContainer}>
-					<Image source={tree} />
-					<Image source={tree} style={styles.middleTree} />
-					<Image source={tree} />
-				</View> */}
-				<BackgroundTrees/>
+				<BackgroundTrees />
 				<Image source={cow} style={styles.cow} />
 				<Image source={maid} style={styles.maid} />
 				<Image source={logo} style={styles.logo} />

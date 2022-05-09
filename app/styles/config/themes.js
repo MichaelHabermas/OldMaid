@@ -1,5 +1,6 @@
 import { palette } from './palette';
 
+// TODO: update this
 const defaultTheme = {
 	color: {
 		appBackground: palette.lightCyan,
