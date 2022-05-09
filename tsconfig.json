@@ -1,24 +1,29 @@
 {
-	"extends": "expo/tsconfig.base",
-	"compilerOptions": {
-		"strict": true,
-		"experimentalDecorators": true,
-		"module": "commonjs",
-		"target": "es6",
-		"moduleResolution": "node",
-		"sourceMap": true,
-		"lib": ["dom", "es2020"],
-		"jsx": "preserve",
-		"noImplicitAny": false,
-		"downlevelIteration": false,
-		"allowJs": false,
-		"checkJs": false,
-		"skipLibCheck": true,
-		"declaration": false,
-		"importHelpers": true,
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"inlineSources": true
-	},
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "strict": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es2020"
+    ],
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "downlevelIteration": false,
+    "allowJs": false,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "declaration": false,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "inlineSources": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
 }
