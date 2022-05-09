@@ -1,5 +1,5 @@
 export const global = {
-	container: {
+	g_container: {
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',

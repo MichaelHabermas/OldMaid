@@ -1,37 +1,37 @@
 export const startScreen = {
-	cloud: {
+	ss_cloud: {
 		height: 100,
 		position: 'absolute',
 		resizeMode: 'contain',
 		top: '5%',
 		width: 200,
 	},
-	cloud1: {
+	ss_cloud1: {
 		left: '5%',
 	},
-	cloud2: {
+	ss_cloud2: {
 		right: '5%',
 	},
-	cow: {
+	ss_cow: {
 		bottom: '30%',
 		position: 'absolute',
 		left: '5%',
 	},
-	flower: {
+	ss_flower: {
 		position: 'absolute',
 	},
-	logo: {
+	ss_logo: {
 		position: 'absolute',
-		top: '30%',
+		top: '20%',
 		zIndex: 10,
 	},
-	maid: {
+	ss_maid: {
 		bottom: '29%',
 		position: 'absolute',
 		right: '8%',
 	},
-	startBtn: {
-		bottom: '18%',
+	ss_startBtn: {
+		bottom: '10%',
 		position: 'absolute',
 	},
 };

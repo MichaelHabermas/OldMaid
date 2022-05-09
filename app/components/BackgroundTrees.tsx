@@ -1,19 +1,22 @@
-import { View, Image } from "react-native";
-import React from "react";
-import { useStyles } from "../styles/config/styles";
+import { Image, View } from 'react-native';
+import React from 'react';
 
-const tree = require("../../assets/common/tree.png");
+// components
+
+// types
+
+// assets & styling
+import { assets } from '../../assets';
+import { styles } from '../styles';
 
 const BackgroundTrees = (): JSX.Element => {
-  const styles = useStyles();
-
-  return (
-    <View style={styles.treeContainer}>
-      <Image source={tree} />
-      <Image source={tree} style={styles.middleTree} />
-      <Image source={tree} />
-    </View>
-  );
+	return (
+		<View style={styles.c_bgt_treeContainer}>
+			<Image source={assets.common.tree} />
+			<Image source={assets.common.tree} style={styles.c_bgt_middleTree} />
+			<Image source={assets.common.tree} />
+		</View>
+	);
 };
 
 export default BackgroundTrees;

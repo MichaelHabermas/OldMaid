@@ -23,10 +23,10 @@ const Background = ({
 	return (
 		<ImageBackground
 			source={assets.common[backgroundAsset]}
-			style={styles.container}
+			style={styles.g_container}
 		>
 			{addGround && (
-				<Image source={assets.common.halfGrass} style={styles.ground} />
+				<Image source={assets.common.halfGrass} style={styles.c_bg_ground} />
 			)}
 			{children}
 		</ImageBackground>

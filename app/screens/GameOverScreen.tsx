@@ -21,7 +21,7 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 		<Background backgroundAsset={backgroundImage.eveningSky}>
 			<BackgroundTrees />
 			<Image source={gameOverScreen.gameOverHeader} />
-			<Image source={gameOverScreen.cow} style={styles.cow} />
+			{/* <Image source={gameOverScreen.cow} style={styles.ss_cow} /> */}
 			{/* <Image source={flower} /> */}
 			{/* <Image source={maid} /> */}
 			{/* <Image source={bigStar} /> */}

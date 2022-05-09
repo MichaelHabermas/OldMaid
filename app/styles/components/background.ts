@@ -1,5 +1,5 @@
 export const background = {
-	ground: {
+	c_bg_ground: {
 		alignSelf: 'center',
 		bottom: 0,
 		height: '50%',
