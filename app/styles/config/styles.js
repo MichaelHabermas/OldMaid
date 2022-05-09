@@ -1,20 +1,26 @@
-import { StyleSheet } from "react-native";
-import { useTheme } from "./themes";
-import { global } from "../global";
-import { components } from "../components";
-export const useStyles = () => {
-  const theme = useTheme();
+import { StyleSheet } from 'react-native';
 
-  const styles = StyleSheet.create({
-    ...global,
-    ...components,
-    app: {
-      alignItems: "center",
-      backgroundColor: theme.color.appBackground,
-      color: theme.color.font,
-      flexDirection: "column",
-      justifyContent: "center",
-    },
-  });
-  return styles;
+import { useTheme } from './themes';
+
+import { components } from '../components';
+import { global } from '../global';
+import { startScreen } from '../screenStyles';
+
+export const useStyles = () => {
+	const theme = useTheme();
+
+	const styles = StyleSheet.create({
+		...components,
+		...global,
+		...startScreen,
+		app: {
+			alignItems: 'center',
+			backgroundColor: theme.color.appBackground,
+			color: theme.color.font,
+			flexDirection: 'column',
+			justifyContent: 'center',
+		},
+	});
+
+	return styles;
 };

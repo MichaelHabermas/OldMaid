@@ -1,25 +1,23 @@
-import { ImageBackground, Image } from 'react-native';
+import { Image, ImageBackground } from 'react-native';
 import React from 'react';
 
-import { useStyles } from '../styles/config/styles';
-import { assets } from '../../assets';
+// components
 
-export enum backgroundImage {
-	daySky = 'daySky',
-	eveningSky = 'eveningSky',
-	fullGrass = 'fullGrass',
-}
-
+// types
+import { backgroundImage } from '../screens/screenTypes';
 interface IBackgroundProps {
 	children: React.ReactNode;
 	backgroundAsset: backgroundImage;
 }
 
+// assets & styling
+import { assets } from '../../assets';
+import { styles } from '../styles';
+
 const Background = ({
 	children,
 	backgroundAsset,
 }: IBackgroundProps): JSX.Element => {
-	const styles = useStyles();
 	const addGround: boolean = backgroundAsset !== backgroundImage.fullGrass;
 
 	return (

@@ -1,30 +1,25 @@
-import { Button, Text, View } from 'react-native';
+import { Button, Text } from 'react-native';
 import React from 'react';
 
-import { useStyles } from '../styles/config/styles';
-
-import { IScreenProps } from './IScreenProps';
-
-import { assets } from '../../assets';
+// components
 import Background from '../components/Background';
 
-import { backgroundImage } from '../components/Background';
+// types
+import { backgroundImage, IScreenProps } from './screenTypes';
+
+// assets & styling
+import { assets } from '../../assets';
+import { styles } from '../styles';
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
-	const styles = useStyles();
-
 	const btnLabel: string = 'Go to Game Play Screen';
 
-	const handleBtnPress = (): void => {
-		navigation.navigate('GamePlay');
-	};
+	const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
 
 	return (
 		<Background backgroundAsset={backgroundImage.fullGrass}>
-			<View style={styles.container}>
-				<Text>Character Select Screen</Text>
-				<Button title={btnLabel} onPress={handleBtnPress} />
-			</View>
+			<Text>Character Select Screen</Text>
+			<Button title={btnLabel} onPress={handleBtnPress} />
 		</Background>
 	);
 };
