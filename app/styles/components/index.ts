@@ -1,3 +1,4 @@
-import { backgroundTrees } from "./backgroundTrees";
+import { background } from './background';
+import { backgroundTrees } from './backgroundTrees';
 
-export const components = { ...backgroundTrees };
+export const components = { ...backgroundTrees, ...background };
