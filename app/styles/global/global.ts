@@ -5,7 +5,7 @@ export const global = {
     justifyContent: 'center',
   },
   g_signBtn: {
-    bottom: '10%',
+    bottom: '13%',
     position: 'absolute',
   },
 };
