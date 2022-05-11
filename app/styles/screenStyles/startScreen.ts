@@ -1,12 +1,17 @@
 export const startScreen = {
+  // basic styles, need to make several styles relative for accurate appearance across screens
+  center_flower_container: {
+    alignItems: 'center',
+    flex: 1,
+  },
   ss_bottLeft_flower: {
-    position: 'absolute',
     bottom: '-.5%',
     left: '-1%',
+    position: 'absolute',
   },
   ss_bottRight_flower: {
-    position: 'absolute',
     bottom: '2%',
+    position: 'absolute',
     right: '1%',
   },
   ss_cloud: {
@@ -23,42 +28,52 @@ export const startScreen = {
     right: '5%',
   },
   ss_cow: {
-    bottom: '30%',
+    bottom: '27%',
+    height: '24%',
+    left: '2%',
     position: 'absolute',
-    left: '5%',
+    width: '41%',
   },
   ss_center_flower: {
+    bottom: '6%',
+    height: '5.7%',
     position: 'absolute',
-    bottom: '7%',
+    width: '12.5%',
   },
   ss_logo: {
     position: 'absolute',
-    top: '20%',
+    top: '26%',
     zIndex: 10,
   },
   ss_maid: {
-    bottom: '29%',
+    bottom: '27%',
+    height: '31%',
     position: 'absolute',
-    right: '8%',
+    right: '12%',
+    width: '30%',
   },
   ss_midLeft_flower: {
-    position: 'absolute',
     bottom: '12%',
     left: '2%',
+    position: 'absolute',
   },
   ss_midRight_flower: {
-    position: 'absolute',
     bottom: '15%',
+    position: 'absolute',
     right: '7%',
   },
   ss_topRight_flower: {
+    bottom: '42%',
+    height: '2%',
+    maxWidth: '50%',
     position: 'absolute',
-    bottom: '40%',
-    right: '.5%',
+    right: '4%',
   },
   ss_topLeft_flower: {
+    bottom: '31%',
+    height: '2%',
+    left: '1%',
+    maxWidth: '50%',
     position: 'absolute',
-    bottom: '35%',
-    left: '.5%',
   },
 };

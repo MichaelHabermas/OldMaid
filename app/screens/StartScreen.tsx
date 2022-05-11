@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
 // components
@@ -28,15 +28,17 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
         style={[styles.ss_cloud, styles.ss_cloud2]}
       />
       <BackgroundTrees />
+      <Image source={common.OldMaidLogo} style={styles.ss_logo} />
       <Image source={startScreen.cow} style={styles.ss_cow} />
       <Image source={startScreen.milkMaid} style={styles.ss_maid} />
-      <Image source={common.OldMaidLogo} style={styles.ss_logo} />
       <TouchableOpacity style={styles.g_signBtn} onPress={handleStart}>
         <Image source={startScreen.startBtn} />
       </TouchableOpacity>
       <Image source={common.flower} style={styles.ss_topLeft_flower} />
       <Image source={common.flower} style={styles.ss_topRight_flower} />
-      <Image source={common.flower} style={styles.ss_center_flower} />
+      <View style={styles.center_flower_container}>
+        <Image source={common.flower} style={styles.ss_center_flower} />
+      </View>
       <Image source={common.flower} style={styles.ss_midRight_flower} />
       <Image source={common.flower} style={styles.ss_midLeft_flower} />
       <Image source={common.flower} style={styles.ss_bottLeft_flower} />
