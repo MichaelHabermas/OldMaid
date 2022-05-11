@@ -1,4 +1,4 @@
-import { Button, Text } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 
 // components
@@ -12,16 +12,22 @@ import { assets } from '../../assets';
 import { styles } from '../styles';
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
-	const btnLabel: string = 'Go to Game Play Screen';
+  const { charSelect } = assets;
 
-	const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
+  const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
 
-	return (
-		<Background backgroundAsset={backgroundImage.fullGrass}>
-			<Text>Character Select Screen</Text>
-			<Button title={btnLabel} onPress={handleBtnPress} />
-		</Background>
-	);
+  return (
+    <Background backgroundAsset={backgroundImage.fullGrass}>
+      <Image source={charSelect.charSelectHeader} style={styles.cs_header} />
+      <Image source={charSelect.table} style={styles.table} />
+      <Image source={charSelect.plate} style={styles.plate} />
+      <Image source={charSelect.leftCupBtn} style={styles.leftCupBtn} />
+      <Image source={charSelect.rightCupBtn} style={styles.rightCupBtn} />
+      <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
+        <Image source={charSelect.confirmBtn} />
+      </TouchableOpacity>
+    </Background>
+  );
 };
 
 export default CharSelectScreen;
