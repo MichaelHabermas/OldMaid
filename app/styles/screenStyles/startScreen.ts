@@ -19,6 +19,7 @@ export const startScreen = {
   },
   ss_flower: {
     position: 'absolute',
+    bottom: '8%',
   },
   ss_logo: {
     position: 'absolute',
