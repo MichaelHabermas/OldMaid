@@ -34,7 +34,13 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
       <TouchableOpacity style={styles.g_signBtn} onPress={handleStart}>
         <Image source={startScreen.startBtn} />
       </TouchableOpacity>
-      <Image source={common.flower} style={styles.ss_flower} />
+      <Image source={common.flower} style={styles.ss_topLeft_flower} />
+      <Image source={common.flower} style={styles.ss_topRight_flower} />
+      <Image source={common.flower} style={styles.ss_center_flower} />
+      <Image source={common.flower} style={styles.ss_midRight_flower} />
+      <Image source={common.flower} style={styles.ss_midLeft_flower} />
+      <Image source={common.flower} style={styles.ss_bottLeft_flower} />
+      <Image source={common.flower} style={styles.ss_bottRight_flower} />
     </Background>
   );
 };
