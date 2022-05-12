@@ -1,20 +1,20 @@
-import { Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { Image, TouchableOpacity } from "react-native";
+import React from "react";
 
 // components
-import Background from '../components/Background';
+import Background from "../components/Background";
 
 // types
-import { backgroundImage, IScreenProps } from './screenTypes';
+import { backgroundImage, IScreenProps } from "./screenTypes";
 
 // assets & styling
-import { assets } from '../../assets';
-import { styles } from '../styles';
+import { assets } from "../../assets";
+import { styles } from "../styles";
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
   const { charSelect } = assets;
 
-  const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
+  const handleBtnPress = (): boolean => navigation.navigate("GamePlay");
 
   return (
     <Background backgroundAsset={backgroundImage.fullGrass}>
