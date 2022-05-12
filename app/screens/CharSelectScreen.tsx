@@ -12,7 +12,7 @@ import { assets } from "../../assets";
 import { styles } from "../styles";
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
-  const { charSelect } = assets;
+  const { charSelect, characters } = assets;
 
   const handleBtnPress = (): boolean => navigation.navigate("GamePlay");
 
@@ -26,6 +26,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
       <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
         <Image source={charSelect.confirmBtn} />
       </TouchableOpacity>
+      <Image source={characters.charactersArray[0]} />
     </Background>
   );
 };
