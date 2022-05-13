@@ -14,10 +14,10 @@ const girl5 = require('./girl_5.png');
 const girl6 = require('./girl_6.png');
 const girl7 = require('./girl_7.png');
 const girl8 = require('./girl_8.png');
-const granma1 = require('./granma_1.png');
-const granma2 = require('./granma_2.png');
-const granpa1 = require('./granpa_1.png');
-const granpa2 = require('./granpa_2.png');
+const grandma1 = require('./grandma_1.png');
+const grandma2 = require('./grandma_2.png');
+const grandpa1 = require('./grandpa_1.png');
+const grandpa2 = require('./grandpa_2.png');
 const man1 = require('./man_1.png');
 const man2 = require('./man_2.png');
 const man3 = require('./man_3.png');
@@ -35,7 +35,7 @@ const woman6 = require('./woman_6.png');
 const woman7 = require('./woman_7.png');
 const woman8 = require('./woman_8.png');
 
-const charactersArray = [
+const characters = {
   boy1,
   boy2,
   boy3,
@@ -52,10 +52,10 @@ const charactersArray = [
   girl6,
   girl7,
   girl8,
-  granma1,
-  granma2,
-  granpa1,
-  granpa2,
+  grandma1,
+  grandma2,
+  grandpa1,
+  grandpa2,
   man1,
   man2,
   man3,
@@ -72,8 +72,6 @@ const charactersArray = [
   woman6,
   woman7,
   woman8,
-];
-
-export const characters = {
-  charactersArray,
 };
+
+export { characters };
