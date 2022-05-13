@@ -2,10 +2,14 @@ import { StyleSheet } from "react-native";
 
 import { useTheme } from "./themes";
 
-import { components } from '../components';
-import { global } from '../global';
-import { startScreen, charSelectScreen, gamePlayScreen } from '../screenStyles';
-
+import { components } from "../components";
+import { global } from "../global";
+import {
+  startScreen,
+  charSelectScreen,
+  gamePlayScreen,
+  gameOverScreen,
+} from "../screenStyles";
 
 export const useStyles = () => {
   const theme = useTheme();
