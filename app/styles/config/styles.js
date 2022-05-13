@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-import { useTheme } from './themes';
+import { useTheme } from "./themes";
 
 import { components } from '../components';
 import { global } from '../global';
@@ -14,12 +14,14 @@ export const useStyles = () => {
     ...global,
     ...startScreen,
     ...charSelectScreen,
+    ...gameOverScreen,
+
     app: {
-      alignItems: 'center',
+      alignItems: "center",
       backgroundColor: theme.color.appBackground,
       color: theme.color.font,
-      flexDirection: 'column',
-      justifyContent: 'center',
+      flexDirection: "column",
+      justifyContent: "center",
     },
   });
   return styles;
