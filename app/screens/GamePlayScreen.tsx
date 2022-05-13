@@ -23,9 +23,9 @@ const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				source={common.optionsButton}
 				style={styles.gps_options_button}
 			/>
-			<Image
+			{/* <Image
 				source={characters.charactersArray[0]}
-			/>
+			/> */}
 			<View style={styles.gps_card_container}>
 				<Image
 					source={gameCards.cardBack}
@@ -52,9 +52,9 @@ const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 					style={styles.gps_card}
 				/>
 			</View>
-			<Image
+			{/* <Image
 				source={characters.charactersArray[15]}
-			/>
+			/> */}
 			<Text>Game Play Screen</Text>
 			<Button title={btnLabel} onPress={handleBtnPress} />
 		</Background>
