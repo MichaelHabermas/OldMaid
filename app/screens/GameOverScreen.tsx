@@ -1,21 +1,21 @@
-import { Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { Image, TouchableOpacity } from "react-native";
+import React from "react";
 
 // components
-import Background from '../components/Background';
-import BackgroundTrees from '../components/BackgroundTrees';
+import Background from "../components/Background";
+import BackgroundTrees from "../components/BackgroundTrees";
 
 // types
-import { backgroundImage, IScreenProps } from './screenTypes';
+import { backgroundImage, IScreenProps } from "./screenTypes";
 
 // assets & styling
-import { assets } from '../../assets';
-import { styles } from '../styles';
+import { assets } from "../../assets";
+import { styles } from "../styles";
 
 const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
   const { gameOverScreen } = assets;
 
-  const handleBtnPress = (): boolean => navigation.navigate('Start');
+  const handleBtnPress = (): boolean => navigation.navigate("Start");
 
   return (
     <Background backgroundAsset={backgroundImage.eveningSky}>
@@ -35,3 +35,4 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 };
 
 export default GameOverScreen;
+// testing
