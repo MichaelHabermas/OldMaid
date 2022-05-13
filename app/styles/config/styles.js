@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 
 import { useTheme } from "./themes";
 
-import { components } from "../components";
-import { global } from "../global";
-import { startScreen, charSelectScreen, gameOverScreen } from "../screenStyles";
+import { components } from '../components';
+import { global } from '../global';
+import { startScreen, charSelectScreen, gamePlayScreen } from '../screenStyles';
+
 
 export const useStyles = () => {
   const theme = useTheme();
-
   const styles = StyleSheet.create({
     ...components,
     ...global,
@@ -24,6 +24,5 @@ export const useStyles = () => {
       justifyContent: "center",
     },
   });
-
   return styles;
 };

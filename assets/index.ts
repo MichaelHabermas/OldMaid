@@ -3,6 +3,7 @@ import { charSelect } from './charSelectScreen';
 import { startScreen } from './startScreen';
 import { gameOverScreen } from './gameOverScreen';
 import { characters } from './characters';
+import { gameCards } from './cards';
 
 export const assets = {
   common,
@@ -10,4 +11,5 @@ export const assets = {
   charSelect,
   gameOverScreen,
   startScreen,
+	gameCards,
 };

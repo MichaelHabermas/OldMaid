@@ -7,6 +7,7 @@ const fullGrass = require('./grass_full.png');
 const halfGrass = require('./grass_half.png');
 const OldMaidLogo = require('./old_maid_logo.png');
 const tree = require('./tree.png');
+const optionsButton = require('./options_button.png');
 
 export const common = {
 	cloud1,
@@ -18,4 +19,5 @@ export const common = {
 	halfGrass,
 	OldMaidLogo,
 	tree,
+	optionsButton,
 };
