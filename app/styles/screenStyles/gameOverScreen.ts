@@ -7,70 +7,16 @@ export const gameOverScreen = {
     position: "absolute",
     left: "16%",
   },
-  gos_bigStar_center: {
+  gos_stars: {
     position: "absolute",
+    top: "3%",
     resizeMode: "contain",
-    top: "15%",
   },
-  gos_littleStar_center: {
+  gos_winMessage:{
     position: "absolute",
-    resizeMode: "contain",
-    top: "12%",
+    bottom: "32%",
   },
-  gos_littleStar_right: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "10%",
-    right: "8%",
-  },
-  gos_littleStar_left: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "10%",
-    left: "8%",
-  },
-  gos_bigStar_right: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "15%",
-    right: "18%",
-  },
-  gos_bigStar_left: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "15%",
-    left: "8%",
-  },
-  gos_littleStar_middleL: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "11%",
-    left: "30%",
-  },
-  gos_bigStar_middleL: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "5%",
-    left: "25%",
-  },
-  gos_littleStar_middleR: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "15%",
-    right: "30%",
-  },
-  gos_bigStar_middleR: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "7%",
-    right: "25%",
-  },
-  gos_bigStar_middleL2: {
-    position: "absolute",
-    resizeMode: "contain",
-    top: "18%",
-    left: "30%",
-  },
+  
   gos_bottomRight_flower: {
     bottom: "3%",
     position: "absolute",
