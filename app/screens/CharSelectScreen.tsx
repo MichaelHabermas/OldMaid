@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import assetArrayBuilder, { IAsset } from '../helpers/assetArrayBuilder';
 
 // components
-import Background from "../components/Background";
+import Background from '../components/Background';
 
 // types
-import { backgroundImage, IScreenProps } from "./screenTypes";
+import { backgroundImage, IScreenProps } from './screenTypes';
 
 // assets & styling
-import { assets } from "../../assets";
-import { styles } from "../styles";
+import { assets } from '../../assets';
+import { styles } from '../styles';
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
   const { charSelect, characters } = assets;
@@ -30,7 +30,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
     setSelectedCharacter(characterChoices[count]);
   }, [count]);
 
-  const handleBtnPress = (): boolean => navigation.navigate("GamePlay");
+  const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
 
   const handleCharChangeRight = (): void => {
     if (count === characterChoices.length - 1) {
