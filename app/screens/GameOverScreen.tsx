@@ -20,44 +20,8 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
   return (
     <Background backgroundAsset={backgroundImage.eveningSky}>
-      <Image
-        source={gameOverScreen.bigStar}
-        style={styles.gos_bigStar_center}
-      />
-      <Image
-        source={gameOverScreen.littleStar}
-        style={styles.gos_littleStar_center}
-      />
-      <Image source={gameOverScreen.bigStar} style={styles.gos_bigStar_right} />
-      <Image
-        source={gameOverScreen.littleStar}
-        style={styles.gos_littleStar_right}
-      />
-      <Image source={gameOverScreen.bigStar} style={styles.gos_bigStar_left} />
-      <Image
-        source={gameOverScreen.littleStar}
-        style={styles.gos_littleStar_left}
-      />
-      <Image
-        source={gameOverScreen.bigStar}
-        style={styles.gos_bigStar_middleL}
-      />
-      <Image
-        source={gameOverScreen.littleStar}
-        style={styles.gos_littleStar_middleL}
-      />
-      <Image
-        source={gameOverScreen.bigStar}
-        style={styles.gos_bigStar_middleR}
-      />
-      <Image
-        source={gameOverScreen.littleStar}
-        style={styles.gos_littleStar_middleR}
-      />
-      <Image
-        source={gameOverScreen.bigStar}
-        style={styles.gos_bigStar_middleL2}
-      />
+      <Image source={gameOverScreen.stars} style={styles.gos_stars} />
+    
       <Image source={gameOverScreen.milkMaid} style={styles.gos_maid} />
       <Image source={gameOverScreen.cow} style={styles.gos_cow} />
       <BackgroundTrees />
@@ -68,10 +32,9 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
       <Image source={common.flower} style={styles.gos_topLeft_flower} />
       <Image source={common.flower} style={styles.gos_middle_flower} />
       <Image source={common.flower} style={styles.gos_bottomLeft_flower} />
-      {/* <Image source={flower} /> */}
-      {/* <Image source={win} /> */}
+      <Image source={gameOverScreen.winMessage} style={styles.gos_winMessage} />
       <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
-        <Image source={gameOverScreen.playAgainBtn} />
+        <Image source={gameOverScreen.playAgainBtn } />
       </TouchableOpacity>
     </Background>
   );
