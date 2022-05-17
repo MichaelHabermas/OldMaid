@@ -8,4 +8,5 @@ export enum backgroundImage {
 
 export interface IScreenProps {
 	navigation: NavigationScreenProp<NavigationRoute<any>>;
+	route: any;
 }

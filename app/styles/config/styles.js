@@ -18,6 +18,7 @@ export const useStyles = () => {
     ...global,
     ...startScreen,
     ...charSelectScreen,
+    ...gamePlayScreen,
     ...gameOverScreen,
 
     app: {
