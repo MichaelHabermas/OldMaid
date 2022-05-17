@@ -16,5 +16,5 @@ export const gamePlayScreen = {
     position: 'absolute',
     height: '100%',
     width: '100%',
-  }
-}
+  },
+};

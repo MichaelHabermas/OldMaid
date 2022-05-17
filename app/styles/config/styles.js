@@ -14,6 +14,7 @@ export const useStyles = () => {
     ...global,
     ...startScreen,
     ...charSelectScreen,
+    ...gamePlayScreen,
     app: {
       alignItems: 'center',
       backgroundColor: theme.color.appBackground,

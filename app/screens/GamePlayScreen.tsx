@@ -11,9 +11,11 @@ import { backgroundImage, IScreenProps } from './screenTypes';
 import { assets } from '../../assets';
 import { styles } from '../styles';
 
-const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
-	const { gameCards, characters, common } = assets;
+const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
+	const { character, opponent } = route.params
+	const { gameCards, common } = assets;
 	const btnLabel: string = 'Go to Game Over Screen';
+
 
 	const handleBtnPress = (): boolean => navigation.navigate('GameOver');
 
@@ -23,9 +25,9 @@ const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 				source={common.optionsButton}
 				style={styles.gps_options_button}
 			/>
-			{/* <Image
-				source={characters.charactersArray[0]}
-			/> */}
+			<Image
+				source={opponent.image}
+			/>
 			<View style={styles.gps_card_container}>
 				<Image
 					source={gameCards.cardBack}
@@ -52,9 +54,9 @@ const GamePlayScreen = ({ navigation }: IScreenProps): JSX.Element => {
 					style={styles.gps_card}
 				/>
 			</View>
-			{/* <Image
-				source={characters.charactersArray[15]}
-			/> */}
+			<Image
+				source={character.image}
+			/>
 			<Text>Game Play Screen</Text>
 			<Button title={btnLabel} onPress={handleBtnPress} />
 		</Background>

@@ -17,6 +17,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
   const [characterChoices, setCharacterChoices] = useState<IAsset[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<IAsset>();
   const [count, setCount] = useState<number>(0);
+  const [randomOpponent, setRandomOpponent] = useState<IAsset>()
 
   useEffect(() => {
     setCharacterChoices(assetArrayBuilder(characters));
@@ -24,13 +25,14 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
   useEffect(() => {
     setSelectedCharacter(characterChoices[count]);
+    setRandomOpponent(characterChoices[Math.floor(Math.random() * characterChoices.length - 1)])
   }, [characterChoices]);
 
   useEffect(() => {
     setSelectedCharacter(characterChoices[count]);
   }, [count]);
 
-  const handleBtnPress = (): boolean => navigation.navigate('GamePlay');
+  const handleBtnPress = (): boolean => navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent });
 
   const handleCharChangeRight = (): void => {
     if (count === characterChoices.length - 1) {
