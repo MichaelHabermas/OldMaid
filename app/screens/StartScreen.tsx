@@ -19,14 +19,8 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
   return (
     <Background backgroundAsset={backgroundImage.daySky}>
-      <Image
-        source={common.cloud1}
-        style={[styles.ss_cloud, styles.ss_cloud1]}
-      />
-      <Image
-        source={common.cloud2}
-        style={[styles.ss_cloud, styles.ss_cloud2]}
-      />
+      <Image source={common.cloud1} style={[styles.ss_cloud, styles.ss_cloud1]} />
+      <Image source={common.cloud2} style={[styles.ss_cloud, styles.ss_cloud2]} />
       <BackgroundTrees />
       <Image source={common.OldMaidLogo} style={styles.ss_logo} />
       <Image source={startScreen.cow} style={styles.ss_cow} />
