@@ -5,15 +5,21 @@ export const gamePlayScreen = {
     left: '3%',
   },
   gps_card_container: {
-    width: '18%',
-    height: '12%',
+    width: '15%',
+    height: '10%',
   },
   gps_card: {
-    height: '100%',
-    width: '100%',
+    resizeMode: 'contain',
+    // height: '50%',
+    width: '20%',
   },
   gps_card_pile: {
-    position: 'absolute',
+    flexDirection: 'row',
+    // height: '100%',
+    width: '100%',
+  },  
+  gps_card_pile_container: {
+    flexDirection: 'row',
     height: '100%',
     width: '100%',
   },
