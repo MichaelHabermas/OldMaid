@@ -18,26 +18,52 @@ export const gamePlayScreen = {
     height: 100,
     borderWidth: 1,
     borderColor: 'black',
-    
   },
   gps_pair_left: {
     position: 'absolute',
-    // top: '50%',
     left: '40%',
     transform: [{rotate: '-10deg'}], 
   },
   gps_pair_right: {
     position: 'absolute',
-    // top: '50%',
     right: '40%',
     transform: [{rotate: '10deg'}],
   },
-  gps_opponent: {
+  gps_character: {
+    position: 'relative',
+  },  
+  gps_opponent_contents: {
     position: 'absolute',
-    top: '10%'
+    top: '25%',
+    width: '100%',
+    alignItems: 'center',
   },
-  gps_player: {
+  gps_opponent_character: {
     position: 'absolute',
-    bottom: '10%'
+    bottom: '110%',
+  },
+  gps_opponent_cards_container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    borderWidth: 1,
+    borderColor: 'black',
+  },
+  gps_player_contents: {
+    position: 'absolute',
+    bottom: '25%',
+    width: '100%',
+    alignItems: 'center',
+  },
+  gps_player_character: {
+    position: 'absolute',
+    top: '110%',
+  },
+  gps_player_cards_container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    borderWidth: 1,
+    borderColor: 'black',
   },
 };
