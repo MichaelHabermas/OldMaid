@@ -25,9 +25,13 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
         <Image source={common.optionsButton} />
       </TouchableOpacity>
 
-      <View style={styles.gps_opponent}>
-        <Image source={opponent.image} />
-        <Image source={gameCards.cardBack} style={styles.gps_card} />
+      <View style={styles.gps_opponent_contents}>
+        <View style={styles.gps_opponent_character}>
+          <Image source={opponent.image} style={styles.gps_character} />
+        </View>
+        <View style={styles.gps_opponent_cards_container}>
+          <Image source={gameCards.cardBack} style={styles.gps_card} />
+        </View>
       </View>
 
       <View style={styles.gps_pair_container}>
@@ -35,9 +39,14 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
         <Image source={pair} style={[styles.gps_card, styles.gps_pair_right]} />
       </View>
 
-      <View style={styles.gps_player}>
-        <Image source={gameCards.cQueen} style={styles.gps_card} />
-        <Image source={character.image} />
+      <View style={styles.gps_player_contents}>
+        <View style={styles.gps_player_cards_container}>
+          <Image source={gameCards.cQueen} style={styles.gps_card} />
+          <Image source={gameCards.cQueen} style={styles.gps_card} />
+        </View>
+        <View style={styles.gps_player_character}>
+          <Image source={character.image} style={styles.gps_character} />
+        </View>
       </View>
     </Background>
   );
