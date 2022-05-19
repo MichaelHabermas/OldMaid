@@ -17,7 +17,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
   const [characterChoices, setCharacterChoices] = useState<IAsset[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<IAsset>();
   const [count, setCount] = useState<number>(0);
-  const [randomOpponent, setRandomOpponent] = useState<IAsset>()
+  const [randomOpponent, setRandomOpponent] = useState<IAsset>();
 
   useEffect(() => {
     setCharacterChoices(assetArrayBuilder(characters));
@@ -25,14 +25,15 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
 
   useEffect(() => {
     setSelectedCharacter(characterChoices[count]);
-    setRandomOpponent(characterChoices[Math.floor(Math.random() * characterChoices.length - 1)])
+    setRandomOpponent(characterChoices[Math.floor(Math.random() * characterChoices.length - 1)]);
   }, [characterChoices]);
 
   useEffect(() => {
     setSelectedCharacter(characterChoices[count]);
   }, [count]);
 
-  const handleBtnPress = (): boolean => navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent });
+  const handleBtnPress = (): boolean =>
+    navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent });
 
   const handleCharChangeRight = (): void => {
     if (count === characterChoices.length - 1) {
@@ -51,16 +52,10 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
       <Image source={charSelect.charSelectHeader} style={styles.cs_header} />
       <Image source={charSelect.table} style={styles.table} />
       <Image source={charSelect.plate} style={styles.plate} />
-      <TouchableOpacity
-        style={styles.leftCupBtn}
-        onPress={handleCharChangeLeft}
-      >
+      <TouchableOpacity style={styles.leftCupBtn} onPress={handleCharChangeLeft}>
         <Image source={charSelect.leftCupBtn} />
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.rightCupBtn}
-        onPress={handleCharChangeRight}
-      >
+      <TouchableOpacity style={styles.rightCupBtn} onPress={handleCharChangeRight}>
         <Image source={charSelect.rightCupBtn} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
