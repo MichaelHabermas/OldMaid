@@ -1,7 +1,6 @@
-import React, { createContext } from 'react';
+import { Context, createContext } from 'react';
+import { IGameState } from './IGameState';
 
-const defaultGameContext = undefined;
-
-const GameContext = createContext(defaultGameContext);
+const GameContext: Context<IGameState> = createContext<IGameState>({} as IGameState);
 
 export default GameContext;
