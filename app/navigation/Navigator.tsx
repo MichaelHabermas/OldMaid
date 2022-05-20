@@ -1,4 +1,4 @@
-import { NavigationContainer, TypedNavigator, ParamListBase, StackNavigationState } from '@react-navigation/native';
+import { TypedNavigator, ParamListBase, StackNavigationState } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
@@ -41,11 +41,7 @@ const Navigator = (): JSX.Element => {
     </Stack.Navigator>
   );
 
-  return (
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>
-  );
+  return <StackNavigator />;
 };
 
 export default Navigator;
