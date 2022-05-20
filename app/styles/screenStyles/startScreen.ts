@@ -1,9 +1,5 @@
 export const startScreen = {
   // basic styles, need to make several styles relative for accurate appearance across screens
-  center_flower_container: {
-    alignItems: 'center',
-    flex: 1,
-  },
   ss_bottLeft_flower: {
     bottom: '-.5%',
     left: '-1%',
@@ -39,6 +35,10 @@ export const startScreen = {
     height: '5.7%',
     position: 'absolute',
     width: '12.5%',
+  },
+  ss_center_flower_container: {
+    alignItems: 'center',
+    flex: 1,
   },
   ss_logo: {
     position: 'absolute',
