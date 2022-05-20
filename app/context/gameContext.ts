@@ -1,5 +1,7 @@
 import React, { createContext } from 'react';
 
-const gameContext: React.Context<unknown> = createContext();
+const defaultGameContext = undefined;
 
-export default gameContext;
+const GameContext = createContext(defaultGameContext);
+
+export default GameContext;
