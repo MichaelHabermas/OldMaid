@@ -1,23 +1,29 @@
 export const charRangeEntryIsValid = (someStr: string): boolean => {
   let strToTest: string = someStr;
-  strToTest = strToTest.replaceAll('\\,', '');
-  strToTest = strToTest.replaceAll('\\,', '');
-  strToTest = strToTest.replaceAll(',,', '');
+  //   strToTest = strToTest.replaceAll('\\,', '');
+  //   strToTest = strToTest.replaceAll('\\,', '');
+  //   strToTest = strToTest.replaceAll(',,', '');
 
-  if (strToTest === '\\') {
-    return true;
-  }
-  if (strToTest.length < 1) {
-    return true;
+  //   if (strToTest === '\\') {
+  //     return true;
+  //   }
+  //   if (strToTest.length < 1) {
+  //     return true;
+  //   }
+
+  // tests for, and fails on, finding a space char. Remove if you want to allow spaces in char ranges.
+  if (someStr.includes(' ')) {
+    return false;
   }
 
   const lastIndex: number = strToTest.length - 1;
-  const oddChars: string = "*/:()_-+<>=!@#[]?&^{}$%.'";
 
+  // various edge cases
   if (
     strToTest[0] === ',' ||
     (strToTest[lastIndex] === ',' && strToTest[lastIndex - 1] !== '\\') ||
-    strToTest.includes(',,,')
+    strToTest.includes(',,,') ||
+    (strToTest[lastIndex] === '-' && isValidSingleChar(strToTest[lastIndex - 1]))
   ) {
     return false;
   }
@@ -29,21 +35,23 @@ export const charRangeEntryIsValid = (someStr: string): boolean => {
     return true;
   }
 
-  let i: number = 0;
+  let i: number = 0; // WHILE STARTS HERE
   while (i < strToTest.length) {
     const firstChar: string = strToTest[i];
     const secondChar: string = strToTest[i + 1];
+    const notLastIdx: boolean = i !== lastIndex;
 
     // bad formatting
-    if (isEngAlphNumChar(firstChar) && secondChar && secondChar !== ',' && secondChar !== '-') {
+    if (isValidSingleChar(firstChar) && secondChar && secondChar !== ',' && secondChar !== '-') {
       return false;
     }
 
-    // handles spaces (more)
-    if (!isEngAlphNumChar(firstChar) && !oddChars.includes(firstChar)) {
+    // handles spaces (more) FIX THESE
+    if (!isValidSingleChar(firstChar)) {
       return false;
-    } else if (!isEngAlphNumChar(firstChar) && oddChars.includes(firstChar)) {
-      if (i !== lastIndex && secondChar !== ',') {
+    }
+    if (isOddChar(firstChar)) {
+      if (notLastIdx && secondChar !== ',') {
         return false;
       } else {
         i += 2;
@@ -51,8 +59,10 @@ export const charRangeEntryIsValid = (someStr: string): boolean => {
       }
     }
 
+    // handle escape chars
+
     // handle single w/ comma
-    if (i !== lastIndex && secondChar === ',' && i + 1 != lastIndex) {
+    if (notLastIdx && secondChar === ',' && i + 1 !== lastIndex) {
       i += 2;
       continue;
     }
@@ -61,26 +71,20 @@ export const charRangeEntryIsValid = (someStr: string): boolean => {
     if (lastIndex - i >= 2 && secondChar === '-') {
       const thirdChar: string = strToTest[i + 2];
 
-      // either left of right side is NaN or alphabetic char
       if (!isEngAlphNumChar(firstChar) || !isEngAlphNumChar(thirdChar)) {
+        // either left of right side is not a number or alphabetic char
         return false;
-      }
-
-      // if the first and third chars are not both number strings or both alphabetic chars
-      if (
+      } else if (
+        // if the first and third chars are not both number strings or both alphabetic chars
         (isEnglishAlphaChar(firstChar) && !isEnglishAlphaChar(thirdChar)) ||
         (isNumberChar(firstChar) && !isNumberChar(thirdChar))
       ) {
         return false;
-      }
-
-      // returns false if first and third char are not is ascending order
-      if (firstChar.charCodeAt(0) >= thirdChar.charCodeAt(0)) {
+      } else if (firstChar.charCodeAt(0) >= thirdChar.charCodeAt(0)) {
+        // returns false if first and third char are not is ascending order
         return false;
-      }
-
-      // return false if 1st through 3rd is valid, && the string is not finished, && the next char is not a comma
-      if (strToTest[i + 3] && strToTest[i + 3] !== ',') {
+      } else if (strToTest[i + 3] && strToTest[i + 3] !== ',') {
+        // return false if 1st through 3rd is valid, && the string is not finished, && the next char is not a comma
         return false;
       }
 
@@ -94,7 +98,7 @@ export const charRangeEntryIsValid = (someStr: string): boolean => {
       return true;
     }
 
-    // end of iteration
+    // end of While iteration
     i++;
   }
 
@@ -113,15 +117,10 @@ const isEngAlphNumChar = (char: string = ''): boolean => {
   return isEnglishAlphaChar(char) || isNumberChar(char);
 };
 
-// TODO may not need
-const subStringCount = (main_str: string, sub_str: string): number => {
-  main_str += '';
-  sub_str += '';
+const isOddChar = (char: string = ''): boolean => {
+  return '*/:()_-+<>=!@#[]?&^{}$%\'."'.includes(char);
+};
 
-  if (sub_str.length <= 0) {
-    return main_str.length + 1;
-  }
-
-  const subStr: string = sub_str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return (main_str.match(new RegExp(subStr, 'gi')) || []).length;
+const isValidSingleChar = (char: string = ''): boolean => {
+  return isEngAlphNumChar(char) || isOddChar(char);
 };
