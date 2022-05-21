@@ -1,9 +1,11 @@
-const cow = require('./cow_ss.png');
-const milkMaid = require('./milk_maid_ss.png');
-const startBtn = require('./start_button.png');
+import { ImageSourcePropType } from 'react-native';
 
-export const startScreen = {
-	cow,
-	milkMaid,
-	startBtn,
+const cow: ImageSourcePropType = require('./cow_ss.png');
+const milkMaid: ImageSourcePropType = require('./milk_maid_ss.png');
+const startBtn: ImageSourcePropType = require('./start_button.png');
+
+export const startScreen: Record<string, ImageSourcePropType> = {
+  cow: cow,
+  milkMaid,
+  startBtn,
 };
