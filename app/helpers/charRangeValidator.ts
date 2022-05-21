@@ -51,32 +51,47 @@ export const charRangeEntryIsValid = (someStr: string): boolean => {
       }
     }
 
-    // last char
-    if (i === lastIndex) {
-      return true;
-    }
-
-    // handle single w/ comma DONE
+    // handle single w/ comma
     if (i !== lastIndex && secondChar === ',' && i + 1 != lastIndex) {
       i += 2;
       continue;
     }
 
-    // is a 3-set, ex. a-e or 6-9 DONE
+    // is a 3-set, ex. "a-e" or "6-9,"
     if (lastIndex - i >= 2 && secondChar === '-') {
       const thirdChar: string = strToTest[i + 2];
 
+      // either left of right side is NaN or alphabetic char
+      if (!isEngAlphNumChar(firstChar) || !isEngAlphNumChar(thirdChar)) {
+        return false;
+      }
+
+      // if the first and third chars are not both number strings or both alphabetic chars
       if (
         (isEnglishAlphaChar(firstChar) && !isEnglishAlphaChar(thirdChar)) ||
         (isNumberChar(firstChar) && !isNumberChar(thirdChar))
       ) {
         return false;
-      } else if (firstChar.charCodeAt(0) >= thirdChar.charCodeAt(0)) {
+      }
+
+      // returns false if first and third char are not is ascending order
+      if (firstChar.charCodeAt(0) >= thirdChar.charCodeAt(0)) {
         return false;
       }
 
-      i += 3;
+      // return false if 1st through 3rd is valid, && the string is not finished, && the next char is not a comma
+      if (strToTest[i + 3] && strToTest[i + 3] !== ',') {
+        return false;
+      }
+
+      // skip to next char after the comma
+      i += 4;
       continue;
+    }
+
+    // last char
+    if (i === lastIndex) {
+      return true;
     }
 
     // end of iteration
@@ -110,52 +125,3 @@ const subStringCount = (main_str: string, sub_str: string): number => {
   const subStr: string = sub_str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return (main_str.match(new RegExp(subStr, 'gi')) || []).length;
 };
-
-const test1: string = 'a'; // true
-const test2: string = 'aa'; // false
-const test3: string = 'A-G'; // true
-const test4: string = 'a-e,1-7'; // true
-const test5: string = 'a-e, 1-7'; // false
-const test6: string = ',a'; // false
-const test7: string = ','; // false
-const test8: string = '\\'; // true ????
-const test9: string = 'G-A'; // false
-const test10: string = 'A-F,g-o,0-9,X,Y,Z,-,\\,,'; // true
-const test11: string = ''; // true
-const test12: string = 'a-7'; // false
-const test13: string = '8-u'; // false
-const test14: string = ' '; // true
-const test15: string = 'a,7'; // true
-const test16: string = '\\,'; // true
-const test17: string = 'a,'; // false
-const test18: string = '!,@,#,$,%,^,&,*,(,),_,+,-,=,[,],{,},|,<,>,?,.,/,:,",;'; // false
-const test19: string = "*,/,:,(,),_,-,+,<,>,=,!,@,#,[,],?,&,^,{,},$,%,.,'"; // true
-const test20: string = 'a-mz'; // false
-
-// can see
-// "*/:,()_-+<>=!@#[]?&^{}$%.'"
-
-// console.log('1', charRangeEntryIsValid(test1), test1); // true
-// console.log('2', charRangeEntryIsValid(test2), test2); // false
-// console.log('3', charRangeEntryIsValid(test3), test3); // true
-// console.log('4', charRangeEntryIsValid(test4), test4); // true
-// console.log('5', charRangeEntryIsValid(test5), test5); // false
-// console.log(' - - - ');
-// console.log('6', charRangeEntryIsValid(test6), test6); // false
-// console.log('7', charRangeEntryIsValid(test7), test7); // false
-// console.log('8', charRangeEntryIsValid(test8), test8); // true ???
-// console.log('9', charRangeEntryIsValid(test9), test9); // false
-// console.log('10', charRangeEntryIsValid(test10), test10); // true ??? THIS
-// console.log(' - - - ');
-// console.log('11', charRangeEntryIsValid(test11), test11); // true
-// console.log('12', charRangeEntryIsValid(test12), test12); // false
-// console.log('13', charRangeEntryIsValid(test13), test13); // false
-// console.log('14', charRangeEntryIsValid(test14), test14); // true
-// console.log('15', charRangeEntryIsValid(test15), test15); // true
-// console.log(' - - - ');
-// console.log('16', charRangeEntryIsValid(test16), test16); // true
-// console.log('17', charRangeEntryIsValid(test17), test17); // false
-// console.log('18', charRangeEntryIsValid(test18), test18); // false
-// console.log('19', charRangeEntryIsValid(test19), test19); // true
-// console.log('20', charRangeEntryIsValid(test20), test20); // false
-// console.log(' - - - ');
