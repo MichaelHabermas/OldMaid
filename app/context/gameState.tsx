@@ -10,5 +10,5 @@ const initialState: IGameState = {
 export const GameStateProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
 
-  return <GameContext.Provider value={initialState}>{children}</GameContext.Provider>;
+  return <GameContext.Provider value={state}>{children}</GameContext.Provider>;
 };
