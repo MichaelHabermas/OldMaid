@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "old_maid",
-    "slug": "old_maid",
+    "name": "Old Maid TS",
+    "slug": "old-maid-ts",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "React Native TS team project, emulating the classic children's card game, Old Maid.\n\nContributions made by:\nShanae Leslie, Laila Arkadan, Will \"The Fresh Mint\" Moon, Shawn Rice, Mina Soha, and Michael Habermas"
   }
 }
