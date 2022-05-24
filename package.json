@@ -21,7 +21,8 @@
 		"react-native-safe-area-context": "^4.2.5",
 		"react-native-screens": "^3.13.1",
 		"react-native-web": "0.17.1",
-		"react-navigation": "^4.4.4"
+		"react-navigation": "^4.4.4",
+		"ts-node": "^10.8.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.18.0",
@@ -38,15 +39,10 @@
 		"singleQuote": true,
 		"parser": "typescript",
 		"printWidth": 120,
-		"tabWidth": 2,
+		"tabWidth": 3,
 		"trailingComma": "all",
 		"jsxSingleQuote": true,
 		"arrowParens": "always",
 		"semi": true
-	},
-    "jest": {
-        "//": "Comments go Here",
-        "verbose": true
-    },
-	"private": true
+	}
 }

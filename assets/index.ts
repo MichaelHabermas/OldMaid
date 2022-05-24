@@ -6,10 +6,10 @@ import { characters } from './characters';
 import { gameCards } from './cards';
 
 export const assets = {
-  common,
-  characters,
-  charSelect,
-  gameOverScreen,
-  startScreen,
-	gameCards,
+   startScreen,
+   common,
+   characters,
+   charSelect,
+   gameOverScreen,
+   gameCards,
 };
