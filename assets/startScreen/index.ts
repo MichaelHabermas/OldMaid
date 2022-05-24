@@ -4,8 +4,8 @@ const cow: ImageSourcePropType = require('./cow_ss.png');
 const milkMaid: ImageSourcePropType = require('./milk_maid_ss.png');
 const startBtn: ImageSourcePropType = require('./start_button.png');
 
-export const startScreen: Record<string, ImageSourcePropType> = {
-  cow: cow,
-  milkMaid,
-  startBtn,
+export const startScreen = {
+   cow,
+   milkMaid,
+   startBtn,
 };

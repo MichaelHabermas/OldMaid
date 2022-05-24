@@ -13,12 +13,12 @@ import type { Config } from '@jest/types';
 
 // Or async function
 export default async (): Promise<Config.InitialOptions> => {
-  return {
-    transform: {
-      '.(ts|tsx)': 'ts-jest',
-    },
-    testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$',
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    verbose: true,
-  };
+   return {
+      transform: {
+         '.(ts|tsx)': 'ts-jest',
+      },
+      testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$',
+      moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+      verbose: true,
+   };
 };
