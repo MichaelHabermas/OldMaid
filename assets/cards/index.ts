@@ -1,17 +1,19 @@
-const cAce = require('./ace.png');
-const cTwo = require('./two.png');
-const cThree = require('./three.png');
-const cFour = require('./four.png');
-const cFive = require('./five.png');
-const cSix = require('./six.png');
-const cSeven = require('./seven.png');
-const cEight = require('./eight.png');
-const cNine = require('./nine.png');
-const cTen = require('./ten.png');
-const cJack = require('./jack.png');
-const cQueen = require('./queen.png');
-const cKing = require('./king.png');
-const cardBackDefault = require('./card_face_selected.png');
+import { ImageSourcePropType } from 'react-native';
+
+const cAce: ImageSourcePropType = require('./ace.png');
+const cTwo: ImageSourcePropType = require('./two.png');
+const cThree: ImageSourcePropType = require('./three.png');
+const cFour: ImageSourcePropType = require('./four.png');
+const cFive: ImageSourcePropType = require('./five.png');
+const cSix: ImageSourcePropType = require('./six.png');
+const cSeven: ImageSourcePropType = require('./seven.png');
+const cEight: ImageSourcePropType = require('./eight.png');
+const cNine: ImageSourcePropType = require('./nine.png');
+const cTen: ImageSourcePropType = require('./ten.png');
+const cJack: ImageSourcePropType = require('./jack.png');
+const cQueen: ImageSourcePropType = require('./queen.png');
+const cKing: ImageSourcePropType = require('./king.png');
+const cardBackDefault: ImageSourcePropType = require('./card_face_selected.png');
 
 export const otherCards = {
    cardBackDefault,
