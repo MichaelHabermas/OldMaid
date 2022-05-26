@@ -13,9 +13,13 @@ const cTen: ImageSourcePropType = require('./ten.png');
 const cJack: ImageSourcePropType = require('./jack.png');
 const cQueen: ImageSourcePropType = require('./queen.png');
 const cKing: ImageSourcePropType = require('./king.png');
-const cardBack: ImageSourcePropType = require('./card_face_selected.png');
+const cardBackDefault: ImageSourcePropType = require('./card_face_selected.png');
 
-export const gameCards = {
+export const otherCards = {
+   cardBackDefault,
+};
+
+export const cardFaces = {
    cAce,
    cTwo,
    cThree,
@@ -29,5 +33,4 @@ export const gameCards = {
    cJack,
    cQueen,
    cKing,
-   cardBack,
 };

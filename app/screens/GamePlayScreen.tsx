@@ -1,11 +1,12 @@
-import { Button, Text, Image, View, TouchableOpacity } from 'react-native';
+// libraries
+import { Image, View, TouchableOpacity } from 'react-native';
 import React, { useState, useContext } from 'react';
 import GameContext from '../context/gameContext';
 
 // components
 import Background from '../components/Background';
 
-// types
+// types & interfaces
 import { backgroundImage, IScreenProps } from './screenTypes';
 
 // assets & styling
@@ -14,11 +15,12 @@ import { styles } from '../styles';
 
 const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const { character, opponent } = route.params;
-   const { gameCards, common } = assets;
+   const { common, otherCards } = assets;
 
-   const { testString, testFunc } = useContext(GameContext);
+   const { playerHands } = useContext(GameContext);
+   const { userHand, opponentHand } = playerHands;
 
-   const [pair, setPair] = useState<import('react-native').ImageSourcePropType>(gameCards.cKing);
+   const [pair, setPair] = useState<import('react-native').ImageSourcePropType>(assets.cardFaces.cKing);
 
    const handleBtnPress = (): boolean => navigation.navigate('GameOver');
 
@@ -33,9 +35,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                <Image source={opponent.image} style={styles.gps_character} />
             </View>
             <View style={styles.gps_opponent_cards_container}>
-               <Image source={gameCards.cardBack} style={styles.gps_card} />
-               <Text>{testString}</Text>
-               <Text>{testFunc('Will')}</Text>
+               <Image source={otherCards.cardBackDefault} style={styles.gps_card} />
             </View>
          </View>
 
@@ -46,8 +46,8 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
 
          <View style={styles.gps_player_contents}>
             <View style={styles.gps_player_cards_container}>
-               <Image source={gameCards.cQueen} style={styles.gps_card} />
-               <Image source={gameCards.cQueen} style={styles.gps_card} />
+               <Image source={userHand[0].image ?? otherCards.cardBackDefault} style={styles.gps_card} />
+               <Image source={opponentHand[0].image ?? otherCards.cardBackDefault} style={styles.gps_card} />
             </View>
             <View style={styles.gps_player_character}>
                <Image source={character.image} style={styles.gps_character} />

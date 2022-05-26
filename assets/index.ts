@@ -3,7 +3,7 @@ import { charSelect } from './charSelectScreen';
 import { startScreen } from './startScreen';
 import { gameOverScreen } from './gameOverScreen';
 import { characters } from './characters';
-import { gameCards } from './cards';
+import { otherCards, cardFaces } from './cards';
 
 export const assets = {
    startScreen,
@@ -11,5 +11,6 @@ export const assets = {
    characters,
    charSelect,
    gameOverScreen,
-   gameCards,
+   otherCards,
+   cardFaces,
 };
