@@ -11,21 +11,24 @@ const cTen = require('./ten.png');
 const cJack = require('./jack.png');
 const cQueen = require('./queen.png');
 const cKing = require('./king.png');
-const cardBack = require('./card_face_selected.png');
+const cardBackDefault = require('./card_face_selected.png');
 
-export const gameCards = {
-  cAce,
-  cTwo,
-  cThree,
-  cFour,
-  cFive,
-  cSix,
-  cSeven,
-  cEight,
-  cNine,
-  cTen,
-  cJack,
-  cQueen,
-  cKing,
-  cardBack,
+export const otherCards = {
+   cardBackDefault,
+};
+
+export const cardFaces = {
+   cAce,
+   cTwo,
+   cThree,
+   cFour,
+   cFive,
+   cSix,
+   cSeven,
+   cEight,
+   cNine,
+   cTen,
+   cJack,
+   cQueen,
+   cKing,
 };
