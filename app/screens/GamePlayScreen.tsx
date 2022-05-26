@@ -35,7 +35,9 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                <Image source={opponent.image} style={styles.gps_character} />
             </View>
             <View style={styles.gps_opponent_cards_container}>
-               <Image source={otherCards.cardBackDefault} style={styles.gps_card} />
+               {opponentHand?.map((card, idx) => (
+                  <Image key={card.id} source={otherCards.cardBackDefault} style={styles.gps_card} />
+               ))}
             </View>
          </View>
 
@@ -46,8 +48,9 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
 
          <View style={styles.gps_player_contents}>
             <View style={styles.gps_player_cards_container}>
-               <Image source={userHand[0].image ?? otherCards.cardBackDefault} style={styles.gps_card} />
-               <Image source={opponentHand[0].image ?? otherCards.cardBackDefault} style={styles.gps_card} />
+               {userHand?.map((card) => (
+                  <Image key={card.id} source={card.image} style={styles.gps_card} />
+               ))}
             </View>
             <View style={styles.gps_player_character}>
                <Image source={character.image} style={styles.gps_character} />
