@@ -1,5 +1,5 @@
 import { Context, createContext } from 'react';
-import { IGameState } from './IGameState';
+import { IGameState } from './gameInterfaces';
 
 const GameContext: Context<IGameState> = createContext<IGameState>({} as IGameState);
 
