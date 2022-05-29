@@ -112,6 +112,7 @@ export const GameStateProvider: React.FC = ({ children }) => {
 
    const resetGame = (): void => {
       setPlayerHands(reduceHands(splitDeckInHalf(shuffleDeck(deck))));
+      setRemovedCard(null);
       setIsUserTurn(true);
       setGameOver(false);
    };
