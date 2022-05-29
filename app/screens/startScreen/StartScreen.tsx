@@ -2,15 +2,15 @@ import { Image, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
 // components
-import Background from '../components/Background';
-import BackgroundTrees from '../components/BackgroundTrees';
+import Background from '../../components/Background';
+import BackgroundTrees from '../../components/BackgroundTrees';
 
 // types
-import { backgroundImage, IScreenProps } from './screenTypes';
+import { backgroundImage, IScreenProps } from '../screenTypes';
 
 // assets & styling
-import { assets } from '../../assets';
-import { styles } from '../styles';
+import { assets } from '../../../assets';
+import { styles } from '../../styles';
 
 const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
    const { common, startScreen } = assets;
