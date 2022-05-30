@@ -10,6 +10,7 @@ import Background from '../components/Background';
 // types, enums, & interfaces
 import { backgroundImage, IScreenProps } from './screenTypes';
 import { soundEffects } from '../contexts/gameContext/gameInterfaces';
+type directions = 'LEFT' | 'RIGHT';
 
 // assets & styling
 import { assets } from '../../assets';
@@ -43,18 +44,14 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
       );
    };
 
-   const handleCharChangeRight = (): void => {
+   const handleCharChange = (direction: directions): void => {
       playSound(soundEffects.cupBtnSFX);
-      if (count === characterChoices.length - 1) {
-         setCount(0);
-      } else setCount(count + 1);
-   };
 
-   const handleCharChangeLeft = (): void => {
-      playSound(soundEffects.cupBtnSFX);
-      if (count === 0) {
-         setCount(characterChoices.length - 1);
-      } else setCount(count - 1);
+      if (direction === 'RIGHT') {
+         count === characterChoices.length - 1 ? setCount(0) : setCount(count + 1);
+      } else {
+         count === 0 ? setCount(characterChoices.length - 1) : setCount(count - 1);
+      }
    };
 
    return (
@@ -62,10 +59,10 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
          <Image source={charSelect.charSelectHeader} style={styles.cs_header} />
          <Image source={charSelect.table} style={styles.table} />
          <Image source={charSelect.plate} style={styles.plate} />
-         <TouchableOpacity style={styles.leftCupBtn} onPress={handleCharChangeLeft}>
+         <TouchableOpacity style={styles.leftCupBtn} onPress={() => handleCharChange('LEFT')}>
             <Image source={charSelect.leftCupBtn} />
          </TouchableOpacity>
-         <TouchableOpacity style={styles.rightCupBtn} onPress={handleCharChangeRight}>
+         <TouchableOpacity style={styles.rightCupBtn} onPress={() => handleCharChange('RIGHT')}>
             <Image source={charSelect.rightCupBtn} />
          </TouchableOpacity>
          <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
