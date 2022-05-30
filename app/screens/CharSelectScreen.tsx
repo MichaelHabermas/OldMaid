@@ -44,12 +44,14 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
    };
 
    const handleCharChangeRight = (): void => {
+      playSound(soundEffects.cupBtnSFX);
       if (count === characterChoices.length - 1) {
          setCount(0);
       } else setCount(count + 1);
    };
 
    const handleCharChangeLeft = (): void => {
+      playSound(soundEffects.cupBtnSFX);
       if (count === 0) {
          setCount(characterChoices.length - 1);
       } else setCount(count - 1);
