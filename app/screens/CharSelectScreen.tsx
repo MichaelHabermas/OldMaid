@@ -48,7 +48,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
    };
 
    return (
-      <Background backgroundAsset={backgroundImage.fullGrass}>
+      <Background backgroundAsset={backgroundImage.picnicBackground}>
          <Image source={charSelect.charSelectHeader} style={styles.cs_header} />
          <Image source={charSelect.table} style={styles.table} />
          <Image source={charSelect.plate} style={styles.plate} />

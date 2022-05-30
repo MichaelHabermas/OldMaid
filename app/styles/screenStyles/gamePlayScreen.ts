@@ -3,8 +3,8 @@ import { Dimensions } from 'react-native';
 export const gamePlayScreen = {
    gps_options_button: {
       position: 'absolute',
-      top: '7%',
-      left: '3%',
+      top: 0,
+      left: -50,
    },
    gps_card: {
       resizeMode: 'contain',

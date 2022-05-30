@@ -17,8 +17,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const { character, opponent } = route.params;
    const { common, otherCards } = assets;
 
-   const { playerHands, isUserTurn, gameOver, removedCard, resetGame, setGameOver, takePlayerTurn } =
-      useContext(GameContext);
+   const { playerHands, isUserTurn, gameOver, removedCard, resetGame, takePlayerTurn } = useContext(GameContext);
    const { userHand, opponentHand } = playerHands;
 
    useEffect(() => {
@@ -32,9 +31,9 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const navigateToGameOverScreen = (): boolean => navigation.navigate('GameOver');
 
    return (
-      <Background backgroundAsset={backgroundImage.fullGrass}>
+      <Background backgroundAsset={backgroundImage.eveningSky}>
          <TouchableOpacity onPress={navigateToGameOverScreen} style={styles.gps_options_button}>
-            <Image source={common.optionsButton} />
+            <Image source={common.sunOptionsBtn} />
          </TouchableOpacity>
 
          <TouchableWithoutFeedback
