@@ -1,31 +1,30 @@
 // libraries
 import React, { useEffect, useReducer, useState } from 'react';
-import { ImageSourcePropType } from 'react-native';
 import { Audio } from 'expo-av';
 
 // contexts & reducers
 import GameContext from './gameContext';
 import gameReducer from './gameReducer';
 
-// interfaces
-import { IPlayerHands, ICard } from './gameInterfaces';
+// types, enums, & interfaces
+import { IPlayerHands, ICard, soundEffects } from './gameInterfaces';
+
+// helpers
+import { deckBuilder, shuffleDeck, splitDeckInHalf, reduceHands } from './helpers';
 
 // assets
 import { assets } from '../../../assets';
-import { gameAudio } from '../../../assets';
+
+export const theQueen: ICard = {
+   id: 'cQueen',
+   name: 'cQueen',
+   image: assets.cardFaces.cQueen,
+};
 
 export const GameStateProvider: React.FC = ({ children }) => {
-   const { marimba } = gameAudio.soundFX;
-
    const [state, dispatch] = useReducer(gameReducer, {});
-   const [mainBtnSound, setMainBtnSound] = useState<Audio.Sound>();
 
-   const playSound = async (): Promise<void> => {
-      const { sound } = await Audio.Sound.createAsync(marimba);
-      setMainBtnSound(sound);
-      await sound.playAsync();
-   };
-
+   const [soundEffect, setSoundEffect] = useState<Audio.Sound>();
    const [deck, setDeck] = useState<ICard[]>([]);
    const [isUserTurn, setIsUserTurn] = useState<boolean>(true);
    const [gameOver, setGameOver] = useState<boolean>(false);
@@ -40,12 +39,6 @@ export const GameStateProvider: React.FC = ({ children }) => {
       userHand &&
       ((opponentHand.length === 1 && userHand.length === 0) || (opponentHand.length === 0 && userHand.length === 1));
 
-   const theQueen: ICard = {
-      id: 'cQueen',
-      name: 'cQueen',
-      image: assets.cardFaces.cQueen,
-   };
-
    useEffect(() => {
       setDeck(shuffleDeck(deckBuilder(assets.cardFaces)));
    }, []);
@@ -59,72 +52,17 @@ export const GameStateProvider: React.FC = ({ children }) => {
    }, [playerHands]);
 
    useEffect(() => {
-      return mainBtnSound
+      return soundEffect
          ? () => {
-              mainBtnSound.unloadAsync();
+              soundEffect.unloadAsync();
            }
          : undefined;
-   }, [mainBtnSound]);
+   }, [soundEffect]);
 
-   // TODO: these can go in a separate file
-   const deckBuilder = (assetCollection: Record<string, ImageSourcePropType>): ICard[] => {
-      let assetArr: ICard[] = [];
-
-      for (let asset in assetCollection) {
-         for (let i = 1; i < 5; i++) {
-            if (asset === 'cQueen') {
-               assetArr.push(theQueen);
-               break;
-            } else {
-               let newCardObj: ICard = {
-                  id: `${asset}${i}`,
-                  name: `${asset}`,
-                  image: assetCollection[asset],
-               };
-               assetArr.push(newCardObj);
-            }
-         }
-      }
-      return assetArr;
-   };
-   const randomizeDeck = (deck: ICard[]): ICard[] => {
-      deck.forEach((_, index) => {
-         let randPos = Math.floor(Math.random() * deck.length);
-         [deck[index], deck[randPos]] = [deck[randPos], deck[index]];
-      });
-      return deck;
-   };
-   const shuffleDeck = (deck: ICard[]): ICard[] => {
-      return randomizeDeck(randomizeDeck(randomizeDeck(deck)));
-   };
-   const splitDeckInHalf = (deck: ICard[]): IPlayerHands => {
-      const half: number = Math.ceil(deck.length / 2);
-      const opponentHand: ICard[] = deck.slice(0, half);
-      const userHand: ICard[] = deck.slice(half);
-      return { userHand, opponentHand };
-   };
-   const reduceHands = (hands: IPlayerHands): IPlayerHands => {
-      let reducedHands: IPlayerHands = {
-         userHand: [],
-         opponentHand: [],
-      };
-      for (let hand in hands) {
-         const reducedHand: ICard[] = removePairs(hands[hand]);
-         reducedHands[hand] = reducedHand;
-      }
-      return reducedHands;
-   };
-   const removePairs = (handOfCards: ICard[]): ICard[] => {
-      let newHand: ICard[] = [];
-      for (let cardName in assets.cardFaces) {
-         const cardsOfAKind: ICard[] = handOfCards.filter((card) => {
-            return cardName === card.name;
-         });
-         if (cardsOfAKind.length % 2 !== 0) {
-            newHand.push(cardsOfAKind[0]);
-         }
-      }
-      return newHand;
+   const playSound = async (soundFile: soundEffects): Promise<void> => {
+      const { sound } = await Audio.Sound.createAsync(soundFile);
+      setSoundEffect(sound);
+      await sound.playAsync();
    };
 
    const resetGame = (): void => {

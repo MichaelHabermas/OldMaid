@@ -9,6 +9,7 @@ import Background from '../components/Background';
 
 // types, enums, & interfaces
 import { backgroundImage, IScreenProps } from './screenTypes';
+import { soundEffects } from '../contexts/gameContext/gameInterfaces';
 
 // assets & styling
 import { assets } from '../../assets';
@@ -37,7 +38,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
    }, [count]);
 
    const handleBtnPress = async (): Promise<void> => {
-      await playSound().finally(() =>
+      await playSound(soundEffects.mainBtn).finally(() =>
          navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent }),
       );
    };

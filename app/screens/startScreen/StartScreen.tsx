@@ -9,6 +9,7 @@ import BackgroundTrees from '../../components/BackgroundTrees';
 
 // types, enums, & interfaces
 import { backgroundImage, IScreenProps } from '../screenTypes';
+import { soundEffects } from '../../contexts/gameContext/gameInterfaces';
 
 // assets & styling
 import { assets } from '../../../assets';
@@ -19,7 +20,7 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
    const { playSound } = useContext(GameContext);
 
    const handleStart = async (): Promise<void> => {
-      await playSound().finally(() => navigation.navigate('CharSelect'));
+      await playSound(soundEffects.mainBtn).finally(() => navigation.navigate('CharSelect'));
    };
 
    return (

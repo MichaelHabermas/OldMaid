@@ -1,15 +1,13 @@
+// types, enums, & interfaces
 import { ImageSourcePropType } from 'react-native';
 
-export interface IGameState {
-   playerHands: IPlayerHands;
-   gameOver: boolean;
-   removedCard: ICard | null;
-   isUserTurn: boolean;
+// assets
+import { gameAudio } from '../../../assets';
+const { marimba, cardFlipSound } = gameAudio.soundFX;
 
-   playSound: () => Promise<void>;
-   resetGame: () => void;
-   setGameOver: (gamePlayState: boolean) => void;
-   takePlayerTurn: (cardsOfTaker: ICard[], cardsOfBeingTaken: ICard[]) => void;
+export enum soundEffects {
+   mainBtn = marimba,
+   cardFlip = cardFlipSound,
 }
 
 export interface IPlayerHands {
@@ -21,4 +19,16 @@ export interface ICard {
    id: string;
    name: string;
    image: ImageSourcePropType;
+}
+
+export interface IGameState {
+   playerHands: IPlayerHands;
+   gameOver: boolean;
+   removedCard: ICard | null;
+   isUserTurn: boolean;
+
+   playSound: (soundEffect: soundEffects) => Promise<void>;
+   resetGame: () => void;
+   setGameOver: (gamePlayState: boolean) => void;
+   takePlayerTurn: (cardsOfTaker: ICard[], cardsOfBeingTaken: ICard[]) => void;
 }

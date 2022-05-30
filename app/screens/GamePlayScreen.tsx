@@ -8,6 +8,7 @@ import Background from '../components/Background';
 
 // types, enums, & interfaces
 import { backgroundImage, IScreenProps } from './screenTypes';
+import { soundEffects } from '../contexts/gameContext/gameInterfaces';
 
 // assets & styling
 import { assets } from '../../assets';
@@ -32,7 +33,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const navigateToGameOverScreen = (): boolean => navigation.navigate('GameOver');
 
    const handleOptionsPress = async (): Promise<void> => {
-      await playSound().finally(() => navigation.navigate('Start'));
+      await playSound(soundEffects.mainBtn).finally(() => navigation.navigate('Start'));
       resetGame();
    };
 
