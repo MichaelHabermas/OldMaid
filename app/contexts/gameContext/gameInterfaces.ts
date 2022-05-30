@@ -3,11 +3,12 @@ import { ImageSourcePropType } from 'react-native';
 
 // assets
 import { gameAudio } from '../../../assets';
-const { marimba, cardFlipSound } = gameAudio.soundFX;
+const { marimba, cardFlipSound, cupBtnSound } = gameAudio.soundFX;
 
 export enum soundEffects {
    mainBtn = marimba,
    cardFlip = cardFlipSound,
+   cupBtnSFX = cupBtnSound,
 }
 
 export interface IPlayerHands {
