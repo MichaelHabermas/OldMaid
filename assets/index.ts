@@ -5,6 +5,8 @@ import { gameOverScreen } from './gameOverScreen';
 import { characters } from './characters';
 import { otherCards, cardFaces } from './cards';
 
+import { soundFX } from './audio';
+
 export const assets = {
    startScreen,
    common,
@@ -13,4 +15,8 @@ export const assets = {
    gameOverScreen,
    otherCards,
    cardFaces,
+};
+
+export const gameAudio = {
+   soundFX,
 };

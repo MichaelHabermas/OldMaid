@@ -1,6 +1,7 @@
 // libraries
 import React, { useEffect, useReducer, useState } from 'react';
 import { ImageSourcePropType } from 'react-native';
+import { Audio } from 'expo-av';
 
 // contexts & reducers
 import GameContext from './gameContext';
@@ -11,18 +12,33 @@ import { IPlayerHands, ICard } from './gameInterfaces';
 
 // assets
 import { assets } from '../../../assets';
+import { gameAudio } from '../../../assets';
 
 export const GameStateProvider: React.FC = ({ children }) => {
+   const { marimba } = gameAudio.soundFX;
+
    const [state, dispatch] = useReducer(gameReducer, {});
+   const [mainBtnSound, setMainBtnSound] = useState<Audio.Sound>();
+
+   const playSound = async (): Promise<void> => {
+      const { sound } = await Audio.Sound.createAsync(marimba);
+      setMainBtnSound(sound);
+      await sound.playAsync();
+   };
 
    const [deck, setDeck] = useState<ICard[]>([]);
+   const [isUserTurn, setIsUserTurn] = useState<boolean>(true);
+   const [gameOver, setGameOver] = useState<boolean>(false);
+   const [removedCard, setRemovedCard] = useState<ICard | null>(null);
    const [playerHands, setPlayerHands] = useState<IPlayerHands>({
       userHand: [],
       opponentHand: [],
    });
-   const [isUserTurn, setIsUserTurn] = useState<boolean>(true);
-   const [gameOver, setGameOver] = useState<boolean>(false);
-   const [removedCard, setRemovedCard] = useState<ICard | null>(null);
+   const { opponentHand, userHand } = playerHands;
+   const isGameOverConditionMet: boolean =
+      opponentHand &&
+      userHand &&
+      ((opponentHand.length === 1 && userHand.length === 0) || (opponentHand.length === 0 && userHand.length === 1));
 
    const theQueen: ICard = {
       id: 'cQueen',
@@ -39,15 +55,16 @@ export const GameStateProvider: React.FC = ({ children }) => {
    }, [deck]);
 
    useEffect(() => {
-      const { opponentHand, userHand } = playerHands;
-      if (
-         opponentHand &&
-         userHand &&
-         ((opponentHand.length === 1 && userHand.length === 0) || (opponentHand.length === 0 && userHand.length === 1))
-      ) {
-         setGameOver(true);
-      }
+      isGameOverConditionMet && setGameOver(true);
    }, [playerHands]);
+
+   useEffect(() => {
+      return mainBtnSound
+         ? () => {
+              mainBtnSound.unloadAsync();
+           }
+         : undefined;
+   }, [mainBtnSound]);
 
    // TODO: these can go in a separate file
    const deckBuilder = (assetCollection: Record<string, ImageSourcePropType>): ICard[] => {
@@ -150,6 +167,8 @@ export const GameStateProvider: React.FC = ({ children }) => {
             isUserTurn,
             playerHands,
             removedCard,
+
+            playSound,
             resetGame,
             setGameOver,
             takePlayerTurn,

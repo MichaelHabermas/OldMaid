@@ -1,11 +1,13 @@
+// libraries
+import React, { useContext, useEffect, useState } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import React, { useEffect, useState } from 'react';
 import assetArrayBuilder, { IAsset } from '../helpers/assetArrayBuilder';
+import GameContext from '../contexts/gameContext/gameContext';
 
 // components
 import Background from '../components/Background';
 
-// types
+// types, enums, & interfaces
 import { backgroundImage, IScreenProps } from './screenTypes';
 
 // assets & styling
@@ -14,6 +16,8 @@ import { styles } from '../styles';
 
 const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
    const { charSelect, characters } = assets;
+   const { playSound } = useContext(GameContext);
+
    const [characterChoices, setCharacterChoices] = useState<IAsset[]>([]);
    const [selectedCharacter, setSelectedCharacter] = useState<IAsset>();
    const [count, setCount] = useState<number>(0);
@@ -32,8 +36,11 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
       setSelectedCharacter(characterChoices[count]);
    }, [count]);
 
-   const handleBtnPress = (): boolean =>
-      navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent });
+   const handleBtnPress = async (): Promise<void> => {
+      await playSound().finally(() =>
+         navigation.navigate('GamePlay', { character: selectedCharacter, opponent: randomOpponent }),
+      );
+   };
 
    const handleCharChangeRight = (): void => {
       if (count === characterChoices.length - 1) {

@@ -28,6 +28,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "React Native TS team project, emulating the classic children's card game, Old Maid.\n\nContributions made by:\nShanae Leslie, Laila Arkadan, Will \"The Fresh Mint\" Moon, Shawn Rice, Mina Soha, and Michael Habermas"
+    "description": "React Native TS team project, emulating the classic children's card game, Old Maid.\n\nContributions:\nProgramming: Shanae Leslie, Laila Arkadan, Will \"The Fresh Mint\" Moon, Shawn Rice, Mina Soha, and Michael Habermas\nArt: Adrian Van Der Valk, Vera Poshivay, Shanae Leslie, Laila Arkadan, and Michael Habermas"
   }
 }

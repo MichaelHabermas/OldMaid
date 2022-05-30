@@ -1,11 +1,13 @@
+// libraries
+import React, { useContext } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import GameContext from '../../contexts/gameContext/gameContext';
 
 // components
 import Background from '../../components/Background';
 import BackgroundTrees from '../../components/BackgroundTrees';
 
-// types
+// types, enums, & interfaces
 import { backgroundImage, IScreenProps } from '../screenTypes';
 
 // assets & styling
@@ -14,8 +16,11 @@ import { styles } from '../../styles';
 
 const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
    const { common, startScreen } = assets;
+   const { playSound } = useContext(GameContext);
 
-   const handleStart = (): boolean => navigation.navigate('CharSelect');
+   const handleStart = async (): Promise<void> => {
+      await playSound().finally(() => navigation.navigate('CharSelect'));
+   };
 
    return (
       <Background backgroundAsset={backgroundImage.daySky}>

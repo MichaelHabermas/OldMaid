@@ -1,6 +1,6 @@
 // libraries
-import { Image, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import React, { useContext, useEffect } from 'react';
+import { Image, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import GameContext from '../contexts/gameContext/gameContext';
 
 // components
@@ -17,7 +17,8 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const { character, opponent } = route.params;
    const { common, otherCards } = assets;
 
-   const { playerHands, isUserTurn, gameOver, removedCard, resetGame, takePlayerTurn } = useContext(GameContext);
+   const { playerHands, isUserTurn, gameOver, removedCard, playSound, resetGame, takePlayerTurn } =
+      useContext(GameContext);
    const { userHand, opponentHand } = playerHands;
 
    useEffect(() => {
@@ -30,8 +31,8 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
 
    const navigateToGameOverScreen = (): boolean => navigation.navigate('GameOver');
 
-   const handleOptionsPress = (): void => {
-      navigation.navigate('Start');
+   const handleOptionsPress = async (): Promise<void> => {
+      await playSound().finally(() => navigation.navigate('Start'));
       resetGame();
    };
 

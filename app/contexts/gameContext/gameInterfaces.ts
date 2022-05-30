@@ -5,6 +5,8 @@ export interface IGameState {
    gameOver: boolean;
    removedCard: ICard | null;
    isUserTurn: boolean;
+
+   playSound: () => Promise<void>;
    resetGame: () => void;
    setGameOver: (gamePlayState: boolean) => void;
    takePlayerTurn: (cardsOfTaker: ICard[], cardsOfBeingTaken: ICard[]) => void;
