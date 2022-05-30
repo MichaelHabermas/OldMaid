@@ -74,4 +74,7 @@ export const gamePlayScreen = {
       justifyContent: 'center',
       width: '100%',
    },
+   gps_plate: {
+      position: 'absolute',
+   },
 };

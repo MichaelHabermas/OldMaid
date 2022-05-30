@@ -30,9 +30,14 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
 
    const navigateToGameOverScreen = (): boolean => navigation.navigate('GameOver');
 
+   const handleOptionsPress = (): void => {
+      navigation.navigate('Start');
+      resetGame();
+   };
+
    return (
       <Background backgroundAsset={backgroundImage.eveningSky}>
-         <TouchableOpacity onPress={navigateToGameOverScreen} style={styles.gps_options_button}>
+         <TouchableOpacity onPress={handleOptionsPress} style={styles.gps_options_button}>
             <Image source={common.sunOptionsBtn} />
          </TouchableOpacity>
 
@@ -43,6 +48,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
          >
             <View style={styles.gps_opponent_contents}>
                <View style={styles.gps_opponent_character}>
+                  <Image source={assets.charSelect.plate} style={styles.gps_plate} />
                   <Image source={opponent.image} style={styles.gps_character} />
                </View>
                <View style={styles.gps_opponent_cards_container}>
@@ -78,6 +84,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                   ))}
                </View>
                <View style={styles.gps_player_character}>
+                  <Image source={assets.charSelect.plate} style={styles.gps_plate} />
                   <Image source={character.image} style={styles.gps_character} />
                </View>
             </View>
