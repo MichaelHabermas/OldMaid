@@ -48,5 +48,4 @@ const StartScreen = ({ navigation }: IScreenProps): JSX.Element => {
    );
 };
 
-// export default StartScreen;
 export default StartScreen;

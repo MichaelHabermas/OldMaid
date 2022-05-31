@@ -67,17 +67,13 @@ export const GameStateProvider: React.FC = ({ children }) => {
 
    useEffect(() => {
       setCharPlates({
-         ...charPlates,
          userPlate: plates[plateIdx],
+         opponentPlate: plates[Math.floor(Math.random() * plates.length - 1)],
       });
    }, [plateIdx]);
 
    useEffect(() => {
       isGameOverConditionMet && setGameOver(true);
-      setCharPlates({
-         ...charPlates,
-         opponentPlate: plates[Math.floor(Math.random() * plates.length - 1)],
-      });
    }, [playerHands]);
 
    useEffect(() => {
