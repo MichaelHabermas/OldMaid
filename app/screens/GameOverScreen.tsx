@@ -45,4 +45,5 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
    );
 };
 
+// export default GameOverScreen;
 export default GameOverScreen;

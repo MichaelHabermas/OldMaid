@@ -19,6 +19,11 @@ const picnicBackground: ImageSourcePropType = require('./char_select_background2
 const nightSky: ImageSourcePropType = require('./night_sky.png');
 const daySky2: ImageSourcePropType = require('./day_sky.png');
 const sunOptionsBtn: ImageSourcePropType = require('./sun_options_btn.png');
+const plate1: ImageSourcePropType = require('./plate_1.png');
+const plate2: ImageSourcePropType = require('./plate_2.png');
+const plate3: ImageSourcePropType = require('./plate_3.png');
+const plate4: ImageSourcePropType = require('./plate_4.png');
+const plate5: ImageSourcePropType = require('./plate_5.png');
 
 export const common = {
    birds,
@@ -38,6 +43,13 @@ export const common = {
    OldMaidLogo,
    optionsButton,
    picnicBackground,
+   plates: {
+      plate1,
+      plate2,
+      plate3,
+      plate4,
+      plate5,
+   },
    sunOptionsBtn,
    tree,
 };
