@@ -18,7 +18,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const { character, opponent } = route.params;
    const { common, otherCards } = assets;
 
-   const { playerHands, isUserTurn, gameOver, removedCard, playSound, resetGame, takePlayerTurn } =
+   const { charPlates, playerHands, isUserTurn, gameOver, removedCard, playSound, resetGame, takePlayerTurn } =
       useContext(GameContext);
    const { userHand, opponentHand } = playerHands;
 
@@ -50,7 +50,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
          >
             <View style={styles.gps_opponent_contents}>
                <View style={styles.gps_opponent_character}>
-                  <Image source={assets.charSelect.plate} style={styles.gps_plate} />
+                  <Image source={charPlates.opponentPlate.image} style={styles.gps_plate} />
                   <Image source={opponent.image} style={styles.gps_character} />
                </View>
                <View style={styles.gps_opponent_cards_container}>
@@ -86,7 +86,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                   ))}
                </View>
                <View style={styles.gps_player_character}>
-                  <Image source={assets.charSelect.plate} style={styles.gps_plate} />
+                  <Image source={charPlates.userPlate.image} style={styles.gps_plate} />
                   <Image source={character.image} style={styles.gps_character} />
                </View>
             </View>

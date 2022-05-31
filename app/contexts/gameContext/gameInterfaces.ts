@@ -12,24 +12,31 @@ export enum soundEffects {
 }
 
 export interface IPlayerHands {
-   userHand: ICard[];
-   opponentHand: ICard[];
+   userHand: IImageAsset[];
+   opponentHand: IImageAsset[];
 }
 
-export interface ICard {
+export interface IImageAsset {
    id: string;
    name: string;
    image: ImageSourcePropType;
 }
 
+export interface ICharPlates {
+   userPlate: IImageAsset;
+   opponentPlate: IImageAsset;
+}
+
 export interface IGameState {
    playerHands: IPlayerHands;
    gameOver: boolean;
-   removedCard: ICard | null;
+   removedCard: IImageAsset | null;
    isUserTurn: boolean;
+   charPlates: ICharPlates;
 
+   handleSwitchPlate: () => void;
    playSound: (soundEffect: soundEffects) => Promise<void>;
    resetGame: () => void;
    setGameOver: (gamePlayState: boolean) => void;
-   takePlayerTurn: (cardsOfTaker: ICard[], cardsOfBeingTaken: ICard[]) => void;
+   takePlayerTurn: (cardsOfTaker: IImageAsset[], cardsOfBeingTaken: IImageAsset[]) => void;
 }
