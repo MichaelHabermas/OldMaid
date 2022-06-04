@@ -1,30 +1,6 @@
 import { ImageSourcePropType } from 'react-native';
 
-const boy1: ImageSourcePropType = require('./boy_1.png');
-const boy2: ImageSourcePropType = require('./boy_2.png');
-const boy3: ImageSourcePropType = require('./boy_3.png');
-const boy4: ImageSourcePropType = require('./boy_4.png');
-const boy5: ImageSourcePropType = require('./boy_5.png');
-const boy6: ImageSourcePropType = require('./boy_6.png');
-const boy7: ImageSourcePropType = require('./boy_7.png');
-const boy8: ImageSourcePropType = require('./boy_8.png');
-const boy9: ImageSourcePropType = require('./boy_9.png');
-const boy10: ImageSourcePropType = require('./boy_10.png');
-const boy11: ImageSourcePropType = require('./boy_11.png');
-const boy12: ImageSourcePropType = require('./boy_12.png');
 const cowCharacter: ImageSourcePropType = require('./cow_character.png');
-const girl1: ImageSourcePropType = require('./girl_1.png');
-const girl2: ImageSourcePropType = require('./girl_2.png');
-const girl3: ImageSourcePropType = require('./girl_3.png');
-const girl4: ImageSourcePropType = require('./girl_4.png');
-const girl5: ImageSourcePropType = require('./girl_5.png');
-const girl6: ImageSourcePropType = require('./girl_6.png');
-const girl7: ImageSourcePropType = require('./girl_7.png');
-const girl8: ImageSourcePropType = require('./girl_8.png');
-const girl9: ImageSourcePropType = require('./girl_9.png');
-const girl10: ImageSourcePropType = require('./girl_10.png');
-const girl11: ImageSourcePropType = require('./girl_11.png');
-const girl12: ImageSourcePropType = require('./girl_12.png');
 const grandma1: ImageSourcePropType = require('./grandma_1.png');
 const grandma2: ImageSourcePropType = require('./grandma_2.png');
 const grandma3: ImageSourcePropType = require('./grandma_3.png');
@@ -89,31 +65,7 @@ const characters = {
    grandpa2,
    grandpa3,
    maidCharacter,
-   boy1,
-   boy2,
-   boy3,
-   boy4,
-   boy5,
-   boy6,
-   boy7,
-   boy8,
-   boy9,
-   boy10,
-   boy11,
-   boy12,
    cowCharacter,
-   girl1,
-   girl2,
-   girl3,
-   girl4,
-   girl5,
-   girl6,
-   girl7,
-   girl8,
-   girl9,
-   girl10,
-   girl11,
-   girl12,
 };
 
 export { characters };
