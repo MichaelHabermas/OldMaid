@@ -22,9 +22,10 @@ export const gamePlayScreen = {
       position: 'absolute',
       resizeMode: 'center',
       top: Dimensions.get('window').height / 2,
-      transform: [{ translateY: '-50%' }], // Why does this work but not for translateX??
+      transform: [{ translateY: '-50%' }, { scaleX: 0 }, { scaleY: 0 }], // Why does this work but not for translateX??
       width: '100%',
       height: 100,
+      //   transform: [{ scale: 0 }],
    },
    gps_passed_queen: {
       position: 'absolute',
