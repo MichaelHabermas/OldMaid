@@ -1,6 +1,6 @@
 // libraries
-import React, { useContext, useEffect } from 'react';
-import { Image, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { Animated, Easing, Image, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import GameContext from '../contexts/gameContext/gameContext';
 
 // components
@@ -17,16 +17,15 @@ import { styles } from '../styles';
 const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const { character, opponent } = route.params;
    const { common, otherCards } = assets;
-
    const { charPlates, playerHands, isUserTurn, gameOver, removedCard, playSound, resetGame, takePlayerTurn } =
       useContext(GameContext);
    const { userHand, opponentHand } = playerHands;
+   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
 
    useEffect(() => {
       if (gameOver === true) {
          navigateToGameOverScreen();
          resetGame();
-         // TODO: handle the game over message
       }
    }, [gameOver]);
 
@@ -35,6 +34,43 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
    const handleOptionsPress = async (): Promise<void> => {
       await playSound(soundEffects.mainBtn).finally(() => navigation.navigate('Start'));
       resetGame();
+   };
+
+   useEffect(() => {
+      handleAnimation();
+   }, [takePlayerTurn]);
+
+   const handleAnimation = () => {
+      Animated.timing(rotateAnimation, {
+         duration: 1500,
+         toValue: 1,
+         useNativeDriver: true,
+      }).start(() => {
+         rotateAnimation.setValue(0);
+      });
+   };
+
+   const animatedStyle = {
+      transform: [
+         {
+            rotate: rotateAnimation.interpolate({
+               inputRange: [0, 1],
+               outputRange: ['0deg', '1080deg'],
+            }),
+         },
+         {
+            scaleX: rotateAnimation.interpolate({
+               inputRange: [0, 0.5, 1],
+               outputRange: [0, 3, 0],
+            }),
+         },
+         {
+            scaleY: rotateAnimation.interpolate({
+               inputRange: [0, 0.5, 1],
+               outputRange: [0, 3, 0],
+            }),
+         },
+      ],
    };
 
    return (
@@ -50,7 +86,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
          >
             <View style={styles.gps_opponent_contents}>
                <View style={styles.gps_opponent_character}>
-                  <Image source={charPlates?.opponentPlate?.image} style={styles.gps_plate} />
+                  <Image source={charPlates?.opponentPlate?.image || common.plates.plate1} style={styles.gps_plate} />
                   <Image source={opponent?.image} style={styles.gps_character} />
                </View>
 
@@ -63,7 +99,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
          </TouchableWithoutFeedback>
 
          {removedCard && (
-            <View style={styles.gps_pair_container}>
+            <Animated.View style={[styles.gps_pair_container, animatedStyle]}>
                {removedCard?.name === 'cQueen' ? (
                   <Image source={removedCard.image} style={[styles.gps_card, styles.gps_passed_queen]} />
                ) : (
@@ -72,7 +108,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                      <Image source={removedCard?.image} style={[styles.gps_card, styles.gps_pair_right]} />
                   </View>
                )}
-            </View>
+            </Animated.View>
          )}
 
          <TouchableWithoutFeedback
