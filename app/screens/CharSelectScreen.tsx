@@ -69,7 +69,7 @@ const CharSelectScreen = ({ navigation }: IScreenProps): JSX.Element => {
             <Image source={charSelect.confirmBtn} />
          </TouchableOpacity>
 
-         <Image source={selectedCharacter?.image || characters.boy1} />
+         <Image source={selectedCharacter?.image || characters.man1} />
       </Background>
    );
 };

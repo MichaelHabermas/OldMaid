@@ -20,10 +20,10 @@
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "inlineSources": true,
+    "inlineSources": true
   },
   "exclude": [
     "node_modules"
   ],
-  "extends": "expo/tsconfig.base",
+  "extends": "expo/tsconfig.base"
 }
