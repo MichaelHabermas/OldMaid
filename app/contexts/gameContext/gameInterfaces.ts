@@ -28,15 +28,17 @@ export interface ICharPlates {
 }
 
 export interface IGameState {
-   playerHands: IPlayerHands;
-   gameOver: boolean;
-   removedCard: IImageAsset | null;
-   isUserTurn: boolean;
    charPlates: ICharPlates;
+   gameOver: boolean;
+   gameOverMessage: ImageSourcePropType;
+   isUserTurn: boolean;
+   playerHands: IPlayerHands;
+   removedCard: IImageAsset | null;
 
    handleSwitchPlate: () => void;
    playSound: (soundEffect: soundEffects) => Promise<void>;
    resetGame: () => void;
    setGameOver: (gamePlayState: boolean) => void;
+   setGameOverMessage: (message: ImageSourcePropType) => void;
    takePlayerTurn: (cardsOfTaker: IImageAsset[], cardsOfBeingTaken: IImageAsset[]) => void;
 }

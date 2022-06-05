@@ -86,6 +86,7 @@ const GamePlayScreen = ({ navigation, route }: IScreenProps): JSX.Element => {
                      <Image key={card.id} source={card.image} style={styles.gps_card} />
                   ))}
                </View>
+
                <View style={styles.gps_player_character}>
                   <Image source={charPlates?.userPlate?.image} style={styles.gps_plate} />
                   <Image source={character.image} style={styles.gps_character} />
