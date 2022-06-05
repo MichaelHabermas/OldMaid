@@ -17,27 +17,27 @@ import { styles } from '../styles';
 
 const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
    const { common, gameOverScreen } = assets;
-   const { playSound } = useContext(GameContext);
+   const { playSound, gameOverMessage, setGameOverMessage } = useContext(GameContext);
+   const { flower } = common;
 
    const handleBtnPress = async (): Promise<void> => {
       await playSound(soundEffects.mainBtn).finally(() => navigation.navigate('Start'));
+      setGameOverMessage(gameOverScreen.loseMessage);
    };
 
    return (
       <Background backgroundAsset={backgroundImage.nightSky}>
          <Image source={gameOverScreen.stars} style={styles.gos_stars} />
-
          <Image source={gameOverScreen.milkMaid} style={styles.gos_maid} />
          <Image source={gameOverScreen.cow} style={styles.gos_cow} />
          <BackgroundTrees />
          <Image style={styles.ss_logo} source={gameOverScreen.gameOverHeader} />
-
-         <Image source={common.flower} style={styles.gos_bottomRight_flower} />
-         <Image source={common.flower} style={styles.gos_topRight_flower} />
-         <Image source={common.flower} style={styles.gos_topLeft_flower} />
-         <Image source={common.flower} style={styles.gos_middle_flower} />
-         <Image source={common.flower} style={styles.gos_bottomLeft_flower} />
-         <Image source={gameOverScreen.winMessage} style={styles.gos_winMessage} />
+         <Image source={flower} style={styles.gos_bottomRight_flower} />
+         <Image source={flower} style={styles.gos_topRight_flower} />
+         <Image source={flower} style={styles.gos_topLeft_flower} />
+         <Image source={flower} style={styles.gos_middle_flower} />
+         <Image source={flower} style={styles.gos_bottomLeft_flower} />
+         <Image source={gameOverMessage} style={styles.gos_winMessage} />
          <TouchableOpacity style={styles.g_signBtn} onPress={handleBtnPress}>
             <Image source={gameOverScreen.playAgainBtn} />
          </TouchableOpacity>
@@ -45,5 +45,4 @@ const GameOverScreen = ({ navigation }: IScreenProps): JSX.Element => {
    );
 };
 
-// export default GameOverScreen;
 export default GameOverScreen;

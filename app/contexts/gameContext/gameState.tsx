@@ -8,6 +8,7 @@ import gameReducer from './gameReducer';
 
 // types, enums, & interfaces
 import { ICharPlates, IPlayerHands, IImageAsset, soundEffects } from './gameInterfaces';
+import { ImageSourcePropType } from 'react-native';
 
 // helpers
 import { buildAndShuffleDeck, dealAndReduceDeck, resetHands } from './helpers';
@@ -49,6 +50,7 @@ export const GameStateProvider: React.FC = ({ children }) => {
          image: assets.common.plates.plate2,
       },
    });
+   const [gameOverMessage, setGameOverMessage] = useState<ImageSourcePropType>(assets.gameOverScreen.loseMessage);
 
    const { opponentHand, userHand } = playerHands;
    const isGameOverConditionMet: boolean =
@@ -73,7 +75,10 @@ export const GameStateProvider: React.FC = ({ children }) => {
    }, [plateIdx]);
 
    useEffect(() => {
-      isGameOverConditionMet && setGameOver(true);
+      if (isGameOverConditionMet) {
+         setGameOver(true);
+         playerHands.userHand.length === 0 && setGameOverMessage(assets.gameOverScreen.winMessage);
+      }
    }, [playerHands]);
 
    useEffect(() => {
@@ -136,16 +141,18 @@ export const GameStateProvider: React.FC = ({ children }) => {
    return (
       <GameContext.Provider
          value={{
+            charPlates,
             gameOver,
+            gameOverMessage,
             isUserTurn,
             playerHands,
             removedCard,
-            charPlates,
 
             handleSwitchPlate,
             playSound,
             resetGame,
             setGameOver,
+            setGameOverMessage,
             takePlayerTurn,
          }}
       >
